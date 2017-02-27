@@ -29,10 +29,10 @@ int main(void)
     }
 
     // Read the image file
-    Mat frame = imread("/home/ali/Downloads/COP7-SideEvent_-_1.JPG");
-    cv::resize(frame, frame, frame.size()/5);
-    Mat hat = imread("/home/ali/Projects/face/hat.png", IMREAD_UNCHANGED);
-    Mat beard = imread("/home/ali/Projects/face/beard.png", IMREAD_UNCHANGED);
+    Mat frame = imread("/home/ali/Pictures/face/Aibrgzj8T.jpg");
+    cv::resize(frame, frame, frame.size()/2);
+    Mat hat = imread("/home/ali/Projects/samsung-face/hat.png", IMREAD_UNCHANGED);
+    Mat beard = imread("/home/ali/Projects/samsung-face/beard.png", IMREAD_UNCHANGED);
     //cv::copyMakeBorder(frame, frame, 100, 100,0,0,cv::BORDER_CONSTANT);
     //std::cout << hat.channels() << beard.channels();
     std::vector<Rect> faces;

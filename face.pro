@@ -1,6 +1,7 @@
+QT += core
+QT -= gui
 TEMPLATE = app
-CONFIG += console c++11
-CONFIG -= app_bundle
-CONFIG -= qt
-LIBS += `pkg-config opencv --libs`
-SOURCES += main.cpp
+CONFIG += c++11
+
+LIBS += `pkg-config opencv --libs` -ldlib -lopenblas
+SOURCES += face_landmark_detection_ex.cpp
