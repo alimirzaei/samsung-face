@@ -43,11 +43,81 @@
 #include <dlib/image_processing.h>
 #include <dlib/gui_widgets.h>
 #include <dlib/image_io.h>
+#include <dlib/opencv.h>
 #include <iostream>
 #include <QElapsedTimer>
 #include <QDebug>
+
+#include "opencv2/objdetect/objdetect.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+
+#include <math.h>  /* atan */
+
 using namespace dlib;
 using namespace std;
+
+// TODO: change wearable to sth else!
+void resizeWearable (cv::InputArray src, cv::OutputArray dst, full_object_detection shape, cv::Point2i wearableLandmark, cv::Point2i& resizedWearableLandmark, float widthRatio) {
+    float faceWidth = sqrt( pow(shape.part(16).y() - shape.part(0).y(), 2) + pow(shape.part(16).x() - shape.part(0).x(), 2) );
+    float resizedWidth = faceWidth * widthRatio;
+    float resizedHeight = src.rows() * faceWidth * widthRatio / src.cols();
+
+    resizedWearableLandmark.x = (resizedWidth / src.cols()) * wearableLandmark.x;
+    resizedWearableLandmark.y = (resizedHeight / src.rows()) * wearableLandmark.y;
+
+    cv::resize(src, dst, cv::Size(resizedWidth, resizedHeight));
+}
+
+void rotateWearable(cv::InputArray src, cv::OutputArray dst, double angle, cv::Point resizedLandmark, cv::Point& rotatedLandmark) {
+    // get rotation matrix for rotating the image around its center
+    cv::Point2f center(src.cols()/2.0, src.rows()/2.0);
+    cv::Mat rot = cv::getRotationMatrix2D(center, angle, 1.0);
+    // determine bounding rectangle
+    cv::Rect bbox = cv::RotatedRect(center,src.size(), angle).boundingRect();
+    // adjust transformation matrix
+    rot.at<double>(0,2) += bbox.width/2.0 - center.x;
+    rot.at<double>(1,2) += bbox.height/2.0 - center.y;
+
+    std::vector<cv::Point> points, points_out;
+    points.push_back(resizedLandmark);
+    cv::transform(points, points_out, rot);
+    rotatedLandmark = points_out[0];
+
+    cv::warpAffine(src, dst, rot, bbox.size());
+}
+
+#define PI 3.14159265
+double calculateAngle(full_object_detection shape) {
+    int leftEyeX = (shape.part(39).x() + shape.part(36).x()) / 2;
+    int leftEyeY = (shape.part(39).y() + shape.part(36).y()) / 2;
+
+    int rightEyeX = (shape.part(45).x() + shape.part(42).x()) / 2;
+    int rightEyeY = (shape.part(45).y() + shape.part(42).y()) / 2;
+
+    double angle = - std::atan( float(rightEyeY - leftEyeY) / float(rightEyeX - leftEyeX) ) * 180.0 / PI;
+    return angle;
+}
+
+cv::Point getHatLandmarksOnFace (full_object_detection shape) {
+    int noseTopX = shape.part(27).x();
+    int noseTopY = shape.part(27).y();
+
+    float noseToChinHeight = shape.part(8).y() - shape.part(27).y();
+
+    // TODO: This should be improved. remove magical number
+    int faceLandmarkX = noseTopX;
+    int faceLandmarkY = noseTopY - 0.6 * noseToChinHeight;
+
+    return cv::Point(faceLandmarkX, faceLandmarkY);
+}
+
+cv::Point getBeardLandmarksOnFace (full_object_detection shape) {
+    return cv::Point(shape.part(62).x(), shape.part(62).y());
+}
+
+
+
 
 // ----------------------------------------------------------------------------------------
 
@@ -76,17 +146,19 @@ int main(int argc, char** argv)
         // loading the model from the shape_predictor_68_face_landmarks.dat file you gave
         // as a command line argument.
         shape_predictor sp;
-        deserialize("/home/ali/Downloads/shape_predictor_68_face_landmarks.dat") >> sp;
+        deserialize("/home/reza/samsung-face/shape_predictor_68_face_landmarks.dat") >> sp;
 
         image_window win, win_faces;
         cout << "processing image " << argv[1] << endl;
         array2d<rgb_pixel> img;
         load_image(img, argv[1]);
-        //img.set_size(640,480);
+
+//        img.set_size(640,640);
         // Make the image larger so we can detect small faces.
         QElapsedTimer timer;
         timer.start();
-        pyramid_up(img);
+//        pyramid_up(img);
+
 
         // Now tell the face detector to give us a list of bounding boxes
         // around all the faces in the image.
@@ -110,17 +182,76 @@ int main(int argc, char** argv)
         qDebug() << timer.elapsed();
 
         // Now let's view our face poses on the screen.
-        win.clear_overlay();
-        win.set_image(img);
-        win.add_overlay(render_face_detections(shapes));
+//        win.clear_overlay();
+//        win.set_image(img);
+//        win.add_overlay(render_face_detections(shapes));
 
         // We can also extract copies of each face that are cropped, rotated upright,
         // and scaled to a standard size as shown here:
-        dlib::array<array2d<rgb_pixel> > face_chips;
-        extract_image_chips(img, get_face_chip_details(shapes), face_chips);
-        win_faces.set_image(tile_images(face_chips));
+//        dlib::array<array2d<rgb_pixel> > face_chips;
+//        extract_image_chips(img, get_face_chip_details(shapes), face_chips);
+//        win_faces.set_image(tile_images(face_chips));
 
         cout << "Hit enter to process the next image..." << endl;
+
+        cv::Mat frame = toMat(img);
+
+        cv::Mat hat = imread("/home/reza/samsung-face/hat.png", cv::IMREAD_UNCHANGED);
+        cv::Mat beard = imread("/home/reza/samsung-face/beard.png", cv::IMREAD_UNCHANGED);
+        cv::Mat out;
+        frame.copyTo(out);
+        for (unsigned long k = 0; k < dets.size(); ++k)
+        {
+            cv::Mat resized_hat, resized_beard;
+
+            cv::Point resizedHatLandmark;
+            cv::Point hatLandmark(3100, 2500); // TODO: These numbers should be read from config file
+            resizeWearable(hat, resized_hat, shapes[k], hatLandmark, resizedHatLandmark, 1.5);
+
+            cv::Point resizedBeardLandmark;
+            cv::Point beardLandmark(200, 125); // TODO: These numbers should be read from config file
+            resizeWearable(beard, resized_beard, shapes[k], beardLandmark, resizedBeardLandmark, 1.1);
+
+            // calculation of face angle
+            double angle = calculateAngle(shapes[k]);
+
+            // rotate resized hat and beard based on calculated angle
+            cv::Mat rotated_hat, rotated_beard;
+            cv::Point rotatedHatLandmark;
+            rotateWearable(resized_hat, rotated_hat, angle, resizedHatLandmark, rotatedHatLandmark);
+            cv::Point rotatedBeardLandmark;
+            rotateWearable(resized_beard, rotated_beard, angle, resizedBeardLandmark, rotatedBeardLandmark);
+
+            cv::Point shiftHatLandmark(rotatedHatLandmark.x - getHatLandmarksOnFace(shapes[k]).x,
+                                       rotatedHatLandmark.y - getHatLandmarksOnFace(shapes[k]).y);
+
+            cv::Point shiftBeardLandmark(rotatedBeardLandmark.x - getBeardLandmarksOnFace(shapes[k]).x,
+                                       rotatedBeardLandmark.y - getBeardLandmarksOnFace(shapes[k]).y);
+
+
+            for(int i=0 ; i<rotated_hat.cols; i++)
+                for(int j=0 ; j<rotated_hat.rows; j++) {
+                    if(rotated_hat.at<cv::Vec4b>(j,i)[3] != 0)
+                        out.at<cv::Vec3b>(j - shiftHatLandmark.y ,i - shiftHatLandmark.x) =
+                           cv::Vec3b(rotated_hat.at<cv::Vec4b>(j,i)[0], rotated_hat.at<cv::Vec4b>(j,i)[1], rotated_hat.at<cv::Vec4b>(j,i)[2]);
+
+                }
+
+            for(int i=0 ; i<rotated_beard.cols; i++)
+                for(int j=0 ; j<rotated_beard.rows; j++) {
+                    if(rotated_beard.at<cv::Vec4b>(j,i)[3] != 0)
+                        out.at<cv::Vec3b>(j - shiftBeardLandmark.y ,i - shiftBeardLandmark.x) =
+                           cv::Vec3b(rotated_beard.at<cv::Vec4b>(j,i)[0], rotated_beard.at<cv::Vec4b>(j,i)[1], rotated_beard.at<cv::Vec4b>(j,i)[2]);
+
+                }
+
+
+        }
+
+        cv::imwrite("out.jpg", out);
+        cv::imshow("", out);
+        cv::waitKey(0);
+
         cin.get();
     }
     catch (exception& e)
