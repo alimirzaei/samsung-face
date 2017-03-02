@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Media Device Access</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="./webcam.js"></script>
+
+  <style>
+    video, img {
+      max-width:100%;
+    }
+    .img-rounded {
+    border-radius: 10%;
+    }
+  </style>
+</head>
+<body>
+  <header align ="center" class="bg-info">
+    <img src="images/amoonowrooz.png" style="width:30%;height:auto;">
+  </header>
+<div class="container">
+  <div class="row">
+  <div class="container col-sm-6">
+    <div id="input-photo">
+      <video id="video" style="display:none"></video>
+<img id="amoo" class="img-rounded" src="images/amoo.jpg" style="width:100%;height:auto;display:inline"></div>
+    <button id="cam" type="button" class="btn btn-success btn-block btn-lg"><i class="fa fa-camera" aria-hidden="true"></i> از طریق دوربین </button>
+    <button id="upload" type="button" class="btn btn-info btn-block btn-lg"><i class="fa fa-upload" aria-hidden="true"></i>
+آپلود تصویر </button>
+  </div>
+  <div class="col-sm-6"><img class="img-rounded" src="images/etoud2.jpg" style="width:100%;height:auto;display:inline">
+</img></div>
+  </div>
+
+
+</div>
+
+
+<script>
+$(document).ready(function(){
+    $("#cam").click(function(){
+        $("#amoo").hide();
+        $("#video").show();
+        play_video();
+    });
+});
+
+
+</script>
+</body>
+</html>
