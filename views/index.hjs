@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/hover.css">
+  <title></title>
+  <style media="screen">
+  .top-buffer { margin-top:20px; }
+
+  </style>
+</head>
+<body background="images/layers/background.png">
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-xs-12">
+        <img class="center-block" src="images/layers/amoonowrooz.png" style="width:40%" alt="">
+      </div>
+    </div>
+
+    <div class="row top-buffer">
+      <div class="col col-xs-12">
+        <img class="center-block" src="images/layers/text.png" style="width:50%;"  alt="" >
+      </div>
+    </div>
+
+    <div class="row top-buffer">
+      <div class="col col-xs-2"> </div>
+
+      <div class="col col-xs-2"> </div>
+
+      <div class="col col-xs-2">
+        <div class="hovereffect">
+          <img class="center-block" src="images/layers/p1.png" style="width:100%;cursor:pointer;"  alt="" >
+        </div>
+      </div>
+
+      <div class="col col-xs-2">
+        <div class="hovereffect">
+          <img class="center-block" src="images/layers/p2.png" style="width:100%;cursor:pointer;"  alt="" >
+        </div>
+      </div>
+
+      <div class="col col-xs-2"> </div>
+
+      <div class="col col-xs-2"> </div>
+    </div>
+
+    <div class="row top-buffer">
+      <div class="col col-xs-3"> </div>
+      <div class="col col-xs-2">
+        <div class="hovereffect">
+          <img class="center-block" src="images/layers/p4.png" style="width:100%;cursor:pointer;"  alt="" >
+        </div>
+      </div>
+
+      <div class="col col-xs-2">
+        <div class="hovereffect">
+          <img onclick="openAmooNorooz()" class="center-block" src="images/layers/p3.png" style="width:100%;cursor:pointer;"  alt="" >
+          <!--div class="overlay">
+            <h2>عمونوروز شو</h2>
+          <a class="info" href="#">عمونوروز</a>
+        </div-->
+      </div>
+    </div>
+    <div class="col col-xs-2">
+      <div class="hovereffect">
+        <img class="center-block" src="images/layers/p5.png" style="width:100%;cursor:pointer;"  alt="" >
+      </div>
+    </div>
+
+    <div class="col col-xs-3"> </div>
+  </div>
+
+  <div class="row top-buffer">
+    <div class="col col-xs-4"> </div>
+    <div class="col col-xs-4">
+      <img class="center-block" src="images/layers/samsung.png" style="width:70%;"  alt="" >
+    </div>
+    <div class="col col-xs-4"> </div>
+  </div>
+</div>
+</body>
+
+<script type="text/javascript">
+  function openAmooNorooz() {
+    window.location.href = "image";
+  }
+</script>
+</html>
