@@ -1,16 +1,30 @@
 #include "clsAmooNorouz.h"
-#include "MyTcpServer.h"
 #include <QtCore>
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication a(argc, argv);
 
-    // create MyTcpServer
-    // MyTcpServer constructor will create QTcpServer
 
-    MyTcpServer server;
+clsAmooNorouz* amoo;
+extern "C" {
 
-    return a.exec();
+void init() {
+    clsAmooNorouz::stuConfig config;
+    if(config.loadFromFile("config.xml") == false)
+        config.saveToFile("config.xml");
+    amoo = new clsAmooNorouz(config);
+}
+
+void amooNowroozMaker(char* inputAddress, char* outputAddress) {
+    if(amoo == NULL)
+        qDebug() << "you have init the module!!";
+    cv::Mat input = cv::imread(std::string(inputAddress));
+    cv::Mat output = amoo->getAmooNorouzImage(input);
+    cv::imwrite(std::string(outputAddress), output);
+}
+
 
 }
+//int main(int argc, char *argv[])
+//{
+//    amooNowroozMaker("/home/ali/Pictures/test3.jpg","/home/ali/Pictures/out.jpg");
+
+//}

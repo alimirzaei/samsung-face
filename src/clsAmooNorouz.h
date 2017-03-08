@@ -7,10 +7,13 @@ class clsAmooNorouz
 {
 public:
     struct stuConfig {
-        stuConfig(): beardAddress("images/beared.png"), eyebrowAddress("images/eyebrow.png"),
+        stuConfig(): beardAddress("images/beard.png"), eyebrowAddress("images/eyebrow.png"),
             hatAddress("images/hat.png"), modelAddress("model/shape_predictor_68_face_landmarks.dat"),
             hatLandmark(cv::Point(950, 1500)), beardLandmark(cv::Point(1200, 1800))
         { }
+
+        void saveToFile(std::string _fileName);
+        bool loadFromFile(std::string _fileName);
         std::string beardAddress, eyebrowAddress, hatAddress, modelAddress;
         cv::Point hatLandmark, beardLandmark;
 

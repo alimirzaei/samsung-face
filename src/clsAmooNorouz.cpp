@@ -98,3 +98,32 @@ void clsAmooNorouz::rotateWearable(cv::InputArray src, cv::OutputArray dst, doub
     rotatedLandmark = points_out[0];
     cv::warpAffine(src, dst, rot, bbox.size());
 }
+
+void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
+{
+    cv::FileStorage fs("config.xml", cv::FileStorage::WRITE);
+    fs << "beardAddress" << beardAddress;
+    fs << "eyebrowAddress" << eyebrowAddress;
+    fs << "hatAddress" << hatAddress;
+    fs << "modelAddress" << modelAddress;
+    fs << "hatLandmark" << hatLandmark;
+    fs << "beardLandmark" << beardLandmark;
+    fs.release();
+}
+
+bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
+{
+    cv::FileStorage fs;
+    if(fs.open(_fileName, cv::FileStorage::READ)) {
+        fs["beardAddress"] >> beardAddress;
+        fs["eyebrowAddress"] >> eyebrowAddress;
+        fs["hatAddress"] >> hatAddress;
+        fs["modelAddress"] >> modelAddress;
+        fs["hatLandmark"] >> hatLandmark;
+        fs["beardLandmark"] >> beardLandmark;
+        fs.release();
+    }
+
+
+
+}
