@@ -1,6 +1,6 @@
 #ifndef CLSAMOONOROUZ_H
 #define CLSAMOONOROUZ_H
-
+#include <QSharedPointer>
 #include "clsFaceLandmarkDetection.h"
 
 class clsAmooNorouz
@@ -23,7 +23,7 @@ public:
     cv::Mat getAmooNorouzImage(cv::Mat _input);
 
 private:
-    clsFaceLandmarkDetection landmarkDetector;
+    QSharedPointer<clsFaceLandmarkDetection> landmarkDetector;
     cv::Mat beard, hat, eyebrow;
     stuConfig config;
 private:

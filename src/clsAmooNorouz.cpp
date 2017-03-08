@@ -6,6 +6,7 @@ clsAmooNorouz::clsAmooNorouz(stuConfig _config)
     hat = imread(this->config.hatAddress, cv::IMREAD_UNCHANGED);
     beard = imread(this->config.beardAddress, cv::IMREAD_UNCHANGED);
     eyebrow = imread(this->config.eyebrowAddress, cv::IMREAD_UNCHANGED);
+    landmarkDetector = QSharedPointer<clsFaceLandmarkDetection>(new clsFaceLandmarkDetection(config.modelAddress));
 }
 
 cv::Mat clsAmooNorouz::getAmooNorouzImage(cv::Mat _input)
@@ -14,7 +15,7 @@ cv::Mat clsAmooNorouz::getAmooNorouzImage(cv::Mat _input)
     {
         cv::Mat out;
         _input.copyTo(out);
-        std::vector<full_object_detection> fullObjects = this->landmarkDetector.getFaceLandmarks(_input);
+        std::vector<full_object_detection> fullObjects = this->landmarkDetector->getFaceLandmarks(_input);
         for (unsigned long k = 0; k < fullObjects.size(); ++k)
         {
             cv::Mat resized_hat, resized_beard;
