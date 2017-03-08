@@ -1,10 +1,18 @@
-QT += core
+QT += core network
 QT -= gui
 TEMPLATE = app
 CONFIG += c++11
 
 LIBS += `pkg-config opencv --libs` -ldlib -lopenblas
-SOURCES += face_landmark_detection_ex.cpp
+SOURCES += \
+    clsFaceLandmarkDetection.cpp \
+    clsAmooNorouz.cpp \
+    clsEnrichedFullObject.cpp \
+    main.cpp \
+    MyTcpServer.cpp
 
 HEADERS += \
-    face_landmark_detection_ex.h
+    clsFaceLandmarkDetection.h \
+    clsAmooNorouz.h \
+    clsEnrichedFullObject.h \
+    MyTcpServer.h
