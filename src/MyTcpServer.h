@@ -5,6 +5,7 @@
 #include <QTcpSocket>
 #include <QTcpServer>
 #include <QDebug>
+#include "clsAmooNorouz.h"
 
 class MyTcpServer : public QObject
 {
@@ -19,6 +20,7 @@ public slots:
 
 private:
     QTcpServer *server;
+    clsAmooNorouz amoo;
 };
 
 #endif // MYTCPSERVER_H

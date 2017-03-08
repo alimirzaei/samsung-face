@@ -1,5 +1,5 @@
 #include "MyTcpServer.h"
-
+#include <opencv2/opencv.hpp>
 MyTcpServer::MyTcpServer(QObject *parent) :
     QObject(parent)
 {
@@ -25,10 +25,16 @@ void MyTcpServer::newConnection()
     QTcpSocket *socket = server->nextPendingConnection();
     socket->waitForReadyRead();
     QByteArray array = socket->readAll();
-    qDebug() << QString::fromStdString(array.toStdString());
-    socket->write("Hello client\r\n");
+    int size = array.size();
+    uchar* pcBuffer = (uchar*)array.data();
+    cv::Mat rawData  =  cv::Mat( 1, size, CV_8UC1, pcBuffer );
+    cv::Mat image = cv::imdecode(rawData, CV_LOAD_IMAGE_COLOR);
+    cv::Mat amooImage = amoo.getAmooNorouzImage(image);
+    std::vector<uchar> buffer;
+    cv::imencode(".jpg",amooImage, buffer);
+    uchar* sendBuffer = &buffer[0];
+    socket->write((char*)sendBuffer,buffer.size());
     socket->flush();
     socket->waitForBytesWritten(3000);
-
     socket->close();
 }
