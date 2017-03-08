@@ -1,8 +1,6 @@
 #include "clsAmooNorouz.h"
 #include <QtCore>
 
-
-
 clsAmooNorouz* amoo;
 extern "C" {
 
@@ -15,7 +13,7 @@ void init() {
 
 void amooNowroozMaker(char* inputAddress, char* outputAddress) {
     if(amoo == NULL)
-        qDebug() << "you have init the module!!";
+        qDebug() << "you have to init the module!!";
     cv::Mat input = cv::imread(std::string(inputAddress));
     cv::Mat output = amoo->getAmooNorouzImage(input);
     cv::imwrite(std::string(outputAddress), output);
@@ -23,8 +21,8 @@ void amooNowroozMaker(char* inputAddress, char* outputAddress) {
 
 
 }
-//int main(int argc, char *argv[])
-//{
-//    amooNowroozMaker("/home/ali/Pictures/test3.jpg","/home/ali/Pictures/out.jpg");
+int main(int argc, char *argv[])
+{
+    amooNowroozMaker("/home/ali/Pictures/test3.jpg","/home/ali/Pictures/out2.jpg");
 
-//}
+}

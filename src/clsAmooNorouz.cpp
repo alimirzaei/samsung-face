@@ -122,8 +122,9 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["hatLandmark"] >> hatLandmark;
         fs["beardLandmark"] >> beardLandmark;
         fs.release();
+        return true;
     }
 
-
+    return false;
 
 }
