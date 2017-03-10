@@ -1,114 +1,140 @@
 #include "clsAmooNorouz.h"
-#include "clsEnrichedFullObject.h"
+#include "clsGetLandmarks.h"
+
+using namespace cv;
+
 clsAmooNorouz::clsAmooNorouz(stuConfig _config)
 {
     this->config = _config;
     hat = imread(this->config.hatAddress, cv::IMREAD_UNCHANGED);
     beard = imread(this->config.beardAddress, cv::IMREAD_UNCHANGED);
-    eyebrow = imread(this->config.eyebrowAddress, cv::IMREAD_UNCHANGED);
+    leftEye = imread(this->config.leftEyeAddress, cv::IMREAD_UNCHANGED);
+    rightEye = imread(this->config.rightEyeAddress, cv::IMREAD_UNCHANGED);
     landmarkDetector = QSharedPointer<clsFaceLandmarkDetection>(new clsFaceLandmarkDetection(config.modelAddress));
 }
 
 cv::Mat clsAmooNorouz::getAmooNorouzImage(cv::Mat _input)
 {
-    try
+    cv::Mat resizedImage;
+    resizedImage = this->resizeKeepAspectRatio(_input, this->config.processFrameSize);
+    cv::Mat out;
+    resizedImage.copyTo(out);
+
+    std::vector<full_object_detection> fullObjects = this->landmarkDetector->getFaceLandmarks(resizedImage);
+    for (unsigned long k = 0; k < fullObjects.size(); ++k)
     {
-        cv::Mat out;
-        _input.copyTo(out);
-        std::vector<full_object_detection> fullObjects = this->landmarkDetector->getFaceLandmarks(_input);
-        for (unsigned long k = 0; k < fullObjects.size(); ++k)
-        {
-            cv::Mat resized_hat, resized_beard;
+        cv::Mat eyebrows = getTransformedEyebrows(fullObjects[k], out.size());
+        out = this->putOverlayOnImage(out, eyebrows);
+        cv::Mat beard = getTransformedBeard(fullObjects[k], out.size());
+        out = this->putOverlayOnImage(out, beard);
+        cv::Mat hat = getTransformedHat(fullObjects[k], out.size());
+        out = this->putOverlayOnImage(out, hat);
+    }
 
-            cv::Point resizedHatLandmark;
-            //cv::Point hatLandmark(950, 1500); // TODO: These numbers should be read from config file
-            resizeWearable(hat, resized_hat, fullObjects[k], config.hatLandmark, resizedHatLandmark, 2);
-
-            cv::Point resizedBeardLandmark;
-            //cv::Point beardLandmark(1200, 1800); // TODO: These numbers should be read from config file
-            resizeWearable(beard, resized_beard, fullObjects[k], config.beardLandmark, resizedBeardLandmark, 2.8);
-
-            // calculation of face angle
-            double angle = ((clsEnrichedFullObject*)(&fullObjects[k]))->calculateAngle();
-
-            // rotate resized hat and beard based on calculated angle
-            cv::Mat rotated_hat, rotated_beard;
-            cv::Point rotatedHatLandmark;
-            rotateWearable(resized_hat, rotated_hat, angle, resizedHatLandmark, rotatedHatLandmark);
-            cv::Point rotatedBeardLandmark;
-            rotateWearable(resized_beard, rotated_beard, angle, resizedBeardLandmark, rotatedBeardLandmark);
-
-            cv::Point shiftHatLandmark(rotatedHatLandmark.x - ((clsEnrichedFullObject*)(&fullObjects[k]))->getHatLandmarksOnFace().x,
-                                       rotatedHatLandmark.y - ((clsEnrichedFullObject*)(&fullObjects[k]))->getHatLandmarksOnFace().y);
-
-            cv::Point shiftBeardLandmark(rotatedBeardLandmark.x - ((clsEnrichedFullObject*)(&fullObjects[k]))->getBeardLandmarksOnFace().x,
-                                       rotatedBeardLandmark.y - ((clsEnrichedFullObject*)(&fullObjects[k]))->getBeardLandmarksOnFace().y);
+    return out;
+}
 
 
-            for(int i=0 ; i<rotated_hat.cols; i++)
-                for(int j=0 ; j<rotated_hat.rows; j++) {
-                    if(rotated_hat.at<cv::Vec4b>(j,i)[3] != 0)
-                        out.at<cv::Vec3b>(j - shiftHatLandmark.y ,i - shiftHatLandmark.x) =
-                           cv::Vec3b(rotated_hat.at<cv::Vec4b>(j,i)[0], rotated_hat.at<cv::Vec4b>(j,i)[1], rotated_hat.at<cv::Vec4b>(j,i)[2]);
-
-                }
-
-            for(int i=0 ; i<rotated_beard.cols; i++)
-                for(int j=0 ; j<rotated_beard.rows; j++) {
-                    if(rotated_beard.at<cv::Vec4b>(j,i)[3] != 0)
-                        out.at<cv::Vec3b>(j - shiftBeardLandmark.y ,i - shiftBeardLandmark.x) =
-                           cv::Vec3b(rotated_beard.at<cv::Vec4b>(j,i)[0], rotated_beard.at<cv::Vec4b>(j,i)[1], rotated_beard.at<cv::Vec4b>(j,i)[2]);
-
-                }
-
-
+cv::Mat clsAmooNorouz::putOverlayOnImage(cv::Mat _input, cv::Mat _overlay)
+{
+    cv::Mat out;
+    _input.copyTo(out);
+    for(int i=0 ; i<_overlay.cols; i++)
+        for(int j=0 ; j<_overlay.rows; j++) {
+            if(_overlay.at<cv::Vec4b>(j,i)[3] >.8)
+                out.at<cv::Vec3b>(j ,i) =
+                        cv::Vec3b(_overlay.at<cv::Vec4b>(j,i)[0], _overlay.at<cv::Vec4b>(j,i)[1], _overlay.at<cv::Vec4b>(j,i)[2]);
         }
+    return out;
 
-        return out;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << "\nexception thrown!" << std::endl;
-        std::cout << e.what() << std::endl;
-    }
 }
 
-void clsAmooNorouz::resizeWearable(cv::InputArray src, cv::OutputArray dst, full_object_detection shape, cv::Point2i wearableLandmark, cv::Point2i &resizedWearableLandmark, float widthRatio) {
-    float faceWidth = sqrt( pow(shape.part(16).y() - shape.part(0).y(), 2) + pow(shape.part(16).x() - shape.part(0).x(), 2) );
-    float resizedWidth = faceWidth * widthRatio;
-    float resizedHeight = src.rows() * faceWidth * widthRatio / src.cols();
+cv::Mat clsAmooNorouz::resizeKeepAspectRatio(const cv::Mat &input, const cv::Size &dstSize)
+{
+    cv::Mat output;
+    double h1 = dstSize.width * (input.rows/(double)input.cols);
+    double w2 = dstSize.height * (input.cols/(double)input.rows);
+    if( h1 <= dstSize.height) {
+        cv::resize( input, output, cv::Size(dstSize.width, h1));
+    } else {
+        cv::resize( input, output, cv::Size(w2, dstSize.height));
+    }
 
-    resizedWearableLandmark.x = (resizedWidth / src.cols()) * wearableLandmark.x;
-    resizedWearableLandmark.y = (resizedHeight / src.rows()) * wearableLandmark.y;
-
-    cv::resize(src, dst, cv::Size(resizedWidth, resizedHeight));
+    return output;
 }
 
-void clsAmooNorouz::rotateWearable(cv::InputArray src, cv::OutputArray dst, double angle, cv::Point resizedLandmark, cv::Point &rotatedLandmark) {
-    // get rotation matrix for rotating the image around its center
-    cv::Point2f center(src.cols()/2.0, src.rows()/2.0);
-    cv::Mat rot = cv::getRotationMatrix2D(center, angle, 1.0);
-    // determine bounding rectangle
-    cv::Rect bbox = cv::RotatedRect(center,src.size(), angle).boundingRect();
-    // adjust transformation matrix
-    rot.at<double>(0,2) += bbox.width/2.0 - center.x;
-    rot.at<double>(1,2) += bbox.height/2.0 - center.y;
-    std::vector<cv::Point> points, points_out;
-    points.push_back(resizedLandmark);
-    cv::transform(points, points_out, rot);
-    rotatedLandmark = points_out[0];
-    cv::warpAffine(src, dst, rot, bbox.size());
+Mat clsAmooNorouz::getTransformedBeard(full_object_detection shape, cv::Size _imageSize)
+{
+    std::vector<Point2f> dstPoints;
+    // we use perspective for beard because it has much variation
+    Mat perspectiveMatrix( 3, 3, CV_32FC1 );
+    Mat outputImage;
+
+    // beard
+    for(int i=0; i<config.beardLandmarkIndexs.size(); i++)
+        dstPoints.push_back(Point( shape.part(config.beardLandmarkIndexs[i]).x() , shape.part(config.beardLandmarkIndexs[i]).y() ));
+
+    /// Get the Affine Transform
+    perspectiveMatrix = findHomography( config.beardLandmarks, dstPoints ,0);
+    //perspectiveMatrix = cv::estimateAffinePartial2D(config.beardLandmarks, dstPoints);
+    /// Apply the Affine Transform just found to the src image
+    warpPerspective(this->beard, outputImage, perspectiveMatrix, _imageSize );
+    //warpAffine(this->beard, warp_dst, perspectiveMatrix, _imageSize );
+
+    return outputImage;
+}
+
+Mat clsAmooNorouz::getTransformedEyebrows(full_object_detection shape, cv::Size _imageSize)
+{
+    cv::Mat outputImage;
+    std::vector<Point2f> dstPoints;
+
+    // leftEye
+    for(int i=0; i<config.leftEyeLandmarkIndexs.size(); i++)
+        dstPoints.push_back(Point( shape.part(config.leftEyeLandmarkIndexs[i]).x() , shape.part(config.leftEyeLandmarkIndexs[i]).y() ));
+
+    cv::Mat affineMatrix = cv::estimateAffinePartial2D(config.leftEyeLandmarks, dstPoints);
+    cv::Mat warp_dst;
+    warpAffine(this->leftEye, warp_dst, affineMatrix, _imageSize );
+    warp_dst.copyTo(outputImage);
+
+    // rightEye
+    dstPoints.clear();
+    for(int i=0; i<config.rightEyeLandmarkIndexs.size(); i++)
+        dstPoints.push_back(Point( shape.part(config.rightEyeLandmarkIndexs[i]).x() , shape.part(config.rightEyeLandmarkIndexs[i]).y() ));
+
+    affineMatrix = cv::estimateAffinePartial2D(config.rightEyeLandmarks, dstPoints);
+    warpAffine(this->rightEye, warp_dst, affineMatrix, _imageSize );
+    return outputImage+warp_dst;
+}
+
+Mat clsAmooNorouz::getTransformedHat(full_object_detection shape, Size _imageSize)
+{
+    std::vector<Point2f> dstPoints;
+    // leftEye
+    for(int i=0; i<config.hatLandmarkIndexs.size(); i++)
+        dstPoints.push_back(Point( shape.part(config.hatLandmarkIndexs[i]).x() , shape.part(config.hatLandmarkIndexs[i]).y() ));
+
+    cv::Mat affineMatrix = cv::estimateAffinePartial2D(config.hatLandmarks, dstPoints);
+    cv::Mat outputImage;
+    warpAffine(this->hat, outputImage, affineMatrix, _imageSize );
+    return outputImage;
+
 }
 
 void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
 {
-    cv::FileStorage fs("config.xml", cv::FileStorage::WRITE);
+    cv::FileStorage fs(_fileName, cv::FileStorage::WRITE);
     fs << "beardAddress" << beardAddress;
-    fs << "eyebrowAddress" << eyebrowAddress;
+    fs << "leftEyeAddress" << leftEyeAddress;
+    fs << "rightEyeAddress" << rightEyeAddress;
     fs << "hatAddress" << hatAddress;
     fs << "modelAddress" << modelAddress;
-    fs << "hatLandmark" << hatLandmark;
-    fs << "beardLandmark" << beardLandmark;
+    fs << "hatLandmarks" << hatLandmarks;
+    fs << "beardLandmarks" << beardLandmarks;
+    fs << "leftEyeLandmarks" << leftEyeLandmarks;
+    fs << "rightEyeLandmarks" << rightEyeLandmarks;
+
     fs.release();
 }
 
@@ -117,15 +143,43 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
     cv::FileStorage fs;
     if(fs.open(_fileName, cv::FileStorage::READ)) {
         fs["beardAddress"] >> beardAddress;
-        fs["eyebrowAddress"] >> eyebrowAddress;
+        fs["leftEyeAddress"] >> leftEyeAddress;
+        fs["rightEyeAddress"] >> rightEyeAddress;
+
         fs["hatAddress"] >> hatAddress;
         fs["modelAddress"] >> modelAddress;
-        fs["hatLandmark"] >> hatLandmark;
-        fs["beardLandmark"] >> beardLandmark;
+        fs["hatLandmarks"] >> hatLandmarks;
+        fs["beardLandmarks"] >> beardLandmarks;
+        fs["hatLandmarks"] >> hatLandmarks;
+        fs["beardLandmarks"] >> beardLandmarks;
+        fs["leftEyeLandmarks"] >> leftEyeLandmarks;
+        fs["rightEyeLandmarks"] >> rightEyeLandmarks;
         fs.release();
         return true;
     }
-
     return false;
+}
 
+std::string getLandmarkAddress(std::string address) {
+    QString QAddress;
+    QAddress =QString::fromStdString(address);
+    QString landmarkAddress = QAddress.mid(0,QAddress.lastIndexOf('.'))+"_landmarks.png";
+    return landmarkAddress.toStdString();
+}
+
+bool clsAmooNorouz::stuConfig::getLandMarksFromUser()
+{
+    clsGetLandmarks landmark;
+
+    cv::Mat beard = cv::imread(getLandmarkAddress(this->beardAddress));
+    landmark.getLandmarkPoints(beard, beardLandmarkIndexs.size(), beardLandmarks);
+
+
+    cv::Mat hat = cv::imread(getLandmarkAddress(this->hatAddress));
+    landmark.getLandmarkPoints(hat, hatLandmarkIndexs.size(), hatLandmarks);
+
+    cv::Mat leftEye = cv::imread(getLandmarkAddress(leftEyeAddress));
+    landmark.getLandmarkPoints(leftEye, leftEyeLandmarkIndexs.size(), leftEyeLandmarks);
+    cv::Mat rightEye = cv::imread(getLandmarkAddress(rightEyeAddress));
+    landmark.getLandmarkPoints(rightEye, rightEyeLandmarkIndexs.size(), rightEyeLandmarks);
 }

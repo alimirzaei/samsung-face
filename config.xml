@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<beardAddress>images/beard.png</beardAddress>
+<leftEyeAddress>images/eyebrow_left.png</leftEyeAddress>
+<rightEyeAddress>images/eyebrow_right.png</rightEyeAddress>
+<hatAddress>images/hat.png</hatAddress>
+<modelAddress>model/shape_predictor_68_face_landmarks.dat</modelAddress>
+<hatLandmarks>
+  75 383 201 584 323 381</hatLandmarks>
+<beardLandmarks>
+  19 39 24 96 34 146 59 194 91 235 140 265 200 277 257 261 301 242 336
+  204 365 156 374 92 372 31 201 82</beardLandmarks>
+<leftEyeLandmarks>
+  16 126 57 106 100 92 153 77 210 69</leftEyeLandmarks>
+<rightEyeLandmarks>
+  8 81 56 77 96 84 141 98 189 120</rightEyeLandmarks>
+</opencv_storage>
