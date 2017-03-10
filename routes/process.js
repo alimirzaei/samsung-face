@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ffi = require('ffi');
+// var ffi = require('ffi');
 var multer  = require('multer');
 var upload = multer({ dest: './public/images/uploads' });
 

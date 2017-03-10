@@ -1,0 +1,41 @@
+/* For mobile: */
+@media only screen and (max-device-width: 768px) {
+  #image-container {
+    height: 70vh;
+    width: 80%;
+    margin: auto;
+    margin-top: 7vh;
+    border-radius: 15px;
+  }
+
+  #telegram, #download {
+    width: 100%;
+  }
+  #samsung {
+    width: 80%;
+    margin-top: 2vh;
+  }
+}
+
+/* For desktop: */
+@media only screen and (min-device-width: 768px) {
+  #image-container {
+    height: 60vh;
+    width: 40%;
+    margin: auto;
+    border-radius: 15px;
+  }
+  #telegram-container {
+    margin-left: 25%;
+  }
+  #telegram, #download {
+    width: 100%;
+    cursor: pointer;
+  }
+  .small-br {
+    display: none;
+  }
+  #samsung {
+    width: 30%;
+  }
+}

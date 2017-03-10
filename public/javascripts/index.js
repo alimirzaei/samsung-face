@@ -16,12 +16,14 @@ $(function () {
   var controller = {
     init: function () {
       view.init();
+      cameraView.init();
     },
     getImageSources: function () {
       return model.imageSources;
     },
     processImage: function () {
       view.$fileInput.parent().submit();
+      // TODO: add if for handling desktop web based camera
     }
   };
 
@@ -37,6 +39,8 @@ $(function () {
       this.$amooCardImage = $("#amoo-card");
       this.$samsungImage = $("#samsung");
       this.$fileInput = $("#file-input");
+      this.$cameraOpenButton = $("#camera-open-button");
+      this.$cameraModal = $("#camera-modal");
     },
     bindEvents: function () {
       this.$topLeftCardImage.on("click", function () {
@@ -61,6 +65,12 @@ $(function () {
       });
 
       this.$fileInput.on("change", controller.processImage);
+
+      this.$cameraOpenButton.on("click", function () {
+        view.$cameraModal.css("display", "block");
+        controller.openCamera();
+      });
+
     },
     init: function () {
       this.cacheDom();
@@ -69,7 +79,8 @@ $(function () {
     },
     render: function () {
       this.$happyNewYear.parent().css("background-image", 'url(' + controller.getImageSources().background + ')');
-      this.$happyNewYearImage.attr("src", controller.getImageSources().happyNewYear);
+      this.$happyNewYear.parent().css("background-size", '100% 100%');
+      // this.$happyNewYearImage.attr("src", controller.getImageSources().happyNewYear);
       this.$beAmooButtonImage.attr("src", controller.getImageSources().beAmoo);
       this.$topLeftCardImage.attr("src", controller.getImageSources().topLeftCard);
       this.$topRightCardImage.attr("src", controller.getImageSources().topRightCard);
@@ -77,6 +88,33 @@ $(function () {
       this.$bottomRightCardImage.attr("src", controller.getImageSources().bottomRightCard);
       this.$amooCardImage.attr("src", controller.getImageSources().amooCard);
       this.$samsungImage.attr("src", controller.getImageSources().samsung);
+    }
+  };
+
+  var cameraView = {
+    cacheDom: function () {
+      this.$snapshotButton = $("#camera-snapshot-button");
+      this.$closeButton = $("#camera-close-button");
+      this.$processButton = $("#camera-process-button");
+    },
+    bindEvents: function () {
+      this.$snapshotButton.on("click", function () {
+        controller.takeSnapshot();
+      });
+      this.$closeButton.on("click", function () {
+        view.$cameraModal.css("display", "none");
+      });
+      this.$processButton.on("click", function () {
+        controller.processImage();
+      });
+    },
+    init: function () {
+      this.cacheDom();
+      this.bindEvents();
+      this.render();
+    },
+    render: function () {
+
     }
   };
 

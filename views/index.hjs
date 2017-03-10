@@ -5,48 +5,74 @@
     <title>عمو نوروز شو!</title>
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/preloader.css">
+
+    <!-- 3rd party libraries -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
   </head>
-  <body>
+
+  <!-- Preloader -->
+  <script type="text/javascript">
+      //<![CDATA[
+          $(window).on('load', function() { // makes sure the whole site is loaded
+              $('#status').fadeOut(); // will first fade out the loading animation
+              $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+              $('body').delay(350).css({'overflow':'visible'});
+            })
+      //]]>
+  </script>
+
+  <body style="width: 100vw;">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
     <div id="happy-new-year">
       <br>
       <div style="width: 60%; margin-left: auto;">
-        <img id="be-amoo" alt="" style="width: 100%">
+        <img id="be-amoo" alt="">
       </div>
-      <div style="width: 60%; margin: auto;">
-        <img id="happy-new-year-text" alt="" style="width: 100%">
+      <div class="w3-center" style="width: 60%; margin: auto;">
+        <img id="happy-new-year-text" alt="">
       </div>
 
       <br>
 
       <div class="w3-row w3-center" style="width: 60%; margin: auto;">
-        <div class="w3-col w3-half">
-          <img id="top-left-card" alt="" style="width: 80%">
+        <div class="w3-col l3">
+          <span style="visibility: hidden;">s</span>
         </div>
-        <div class="w3-col w3-half">
-          <img id="top-right-card" alt="" style="width: 80%">
+        <div class="w3-col l3 s6">
+          <img class="card" id="top-left-card" alt="" >
+        </div>
+        <div class="w3-col l3 s6">
+          <img class="card" id="top-right-card" alt="" >
+        </div>
+        <div class="w3-col l3">
+          <span style="visibility: hidden;">s</span>
         </div>
       </div>
 
       <br>
 
       <div class="w3-row w3-center" style="width: 90%; margin: auto;">
-        <div class="w3-col w3-third">
-          <img id="bottom-left-card" alt="" style="width: 80%">
+        <div id="bottom-left-card-container" class="w3-col l2 s4">
+          <img class="card" id="bottom-left-card" alt="">
         </div>
-        <div class="w3-col w3-third">
-          <img id="amoo-card" alt="" style="width: 80%">
+        <div class="w3-col l2 s4">
+          <img class="card" id="amoo-card" alt="">
         </div>
-        <div class="w3-col w3-third">
-          <img id="bottom-right-card" alt="" style="width: 80%">
+        <div class="w3-col l2 s4">
+          <img class="card" id="bottom-right-card" alt="">
         </div>
       </div>
 
-      <br>
-
-      <div style="width: 30%; margin: auto;">
-        <img id="samsung" alt="" style="width: 100%">
+      <div class="w3-center" style="width: 30%; margin: auto;">
+        <img id="samsung" alt="">
       </div>
-
 
       <form action="process" method="post" enctype="multipart/form-data">
         <input style="display: none;" id="file-input" type="file" accept="image/*"
@@ -55,9 +81,33 @@
 
     </div>
 
+    <!-- <button id="camera-open-button" class="w3-button">Open Animated Modal</button>
 
-    <!-- 3rd party libraries -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <div id="camera-modal" class="w3-modal">
+      <div class="w3-modal-content w3-animate-top w3-card-8">
+        <header class="w3-container w3-teal">
+          <h2>Modal Header</h2>
+        </header>
+        <div class="w3-container w3-row">
+          <div class="w3-center w3-col w3-half" style="width: 100%;"> -->
+            <!-- <canvas id="canvas" width="300" height="300"></canvas> -->
+          <!-- </div>
+          <div class="w3-center w3-col w3-half" style="width: 100%;">
+
+          </div>
+        </div>
+        <footer class="w3-container w3-teal">
+          <div class="w3-row w3-center w3-panel">
+            <div class="w3-col w3-half w3-padding">
+              <button class="w3-button w3-block w3-round-large" id="camera-close-button" type="button" >انصراف</button>
+            </div>
+            <div class="w3-col w3-half w3-padding">
+              <button class="w3-button w3-block w3-round-large" id="camera-close-button" type="button" >عمو نوروز شو!</button>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div> -->
 
     <!-- happy new year application code -->
     <script type="text/javascript" src="javascripts/index.js"></script>
