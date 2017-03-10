@@ -5,39 +5,53 @@
     <title>عمو نوروز شو!</title>
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="/stylesheets/image.css">
+    <link rel="stylesheet" href="/stylesheets/preloader.css">
+
+    <!-- 3rd party libraries -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   </head>
+  <!-- Preloader -->
+  <script type="text/javascript">
+      //<![CDATA[
+          $(window).on('load', function() { // makes sure the whole site is loaded
+              $('#status').fadeOut(); // will first fade out the loading animation
+              $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+              $('body').delay(350).css({'overflow':'visible'});
+            })
+      //]]>
+  </script>
   <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
     <div id="image-sharing">
       <br>
-      <div class="w3-blue" style="height: 70vh; width: 80%; margin: auto; margin-top: 7vh; border-radius: 15px;">
+      <div id="image-container" class="w3-blue">
         <img id="image" src="{{ imageUrl }}" style="width:100%; height:100%;" alt="">
       </div>
 
       <br>
-      <br>
+      <br class="small-br">
 
       <div class="w3-row" style="width: 80%; margin: auto; position: relative;">
-        <div class="w3-col w3-third">
-          <img id="telegram" style="width: 100%;" alt="">
+        <div id="telegram-container" class="w3-col s4 l2">
+          <img id="telegram" alt="">
         </div>
-        <div class="w3-col w3-third">
+        <div class="w3-col s4 l2">
           <span style="visibility: hidden;">s</span>
         </div>
-        <div class="w3-col w3-third">
-          <img id="download" style="width: 100%; " alt="">
+        <div class="w3-col s4 l2">
+          <img id="download" alt="">
         </div>
       </div>
 
-      <br>
-      <div style="width: 30%; margin: auto;">
-        <img id="samsung" alt="" style="width: 100%">
+      <div class="w3-center" style="width: 30%; margin: auto;">
+        <img id="samsung" alt="">
       </div>
 
-
     </div>
-
-    <!-- 3rd party libraries -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
     <!-- happy new year application code -->
     <script type="text/javascript" src="/javascripts/image.js"></script>

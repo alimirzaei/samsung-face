@@ -1,0 +1,31 @@
+/* For mobile: */
+@media only screen and (max-device-width: 600px) {
+  #be-amoo {
+    width: 90%; }
+  #happy-new-year-text {
+    width: 100%;
+    content: url("/images/app/happy-new-year.png"); }
+  .card {
+    width: 80%; }
+  #samsung {
+    width: 80%;
+    margin-top: 2vh; }
+  #camera-modal, #camera-open-button {
+    display: none; } }
+
+/* For desktop: */
+@media only screen and (min-device-width: 600px) {
+  #be-amoo {
+    width: 40%; }
+  #happy-new-year-text {
+    width: 100%;
+    content: url("/images/app/happy-new-year-desktop.png"); }
+  .card {
+    width: 70%;
+    cursor: pointer; }
+  #bottom-left-card-container {
+    margin-left: 25%; }
+  #samsung {
+    width: 30%; }
+  #camera-modal {
+    direction: rtl; } }
