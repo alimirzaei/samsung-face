@@ -23,20 +23,18 @@ void amooNowroozMaker(const char* inputAddress, char* outputAddress) {
     //cv::waitKey(0);
     cv::imwrite(std::string(outputAddress), output);
 }
-
-
 }
-int main(int argc, char *argv[])
-{
-    init();
-    QString base = "/home/ali/Pictures/face/";
-    QDir dir(base);
-    QStringList files = dir.entryList(QStringList() << "*.jpg" <<"*.png");
-    QElapsedTimer timer;
-    for( QString file : files) {
-        timer.start();
-        amooNowroozMaker((base+file).toStdString().c_str(),(base+file.mid(0,file.indexOf("."))+"_out.jpg").toUtf8().data());
-        qDebug() << timer.elapsed();
-    }
+//int main(int argc, char *argv[])
+//{
+//    init();
+//    QString base = "/home/ali/Pictures/Webcam/";
+//    QDir dir(base);
+//    QStringList files = dir.entryList(QStringList() << "*.jpg" <<"*.png");
+//    QElapsedTimer timer;
+//    for( QString file : files) {
+//        timer.start();
+//        amooNowroozMaker((base+file).toStdString().c_str(),(base+file.mid(0,file.indexOf("."))+"_out.jpg").toUtf8().data());
+//        qDebug() << timer.elapsed();
+//    }
 
-}
+//}
