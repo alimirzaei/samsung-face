@@ -1,41 +1,78 @@
-/* For mobile: */
-@media only screen and (max-device-width: 768px) {
+/* For portrait views: */
+@media only screen and (orientation: portrait) {
+  #image-sharing {
+    min-height: 97vh;
+  }
   #image-container {
-    height: 70vh;
     width: 80%;
     margin: auto;
     margin-top: 7vh;
     border-radius: 15px;
+    img {
+      width: 100%;
+    }
   }
 
-  #telegram, #download {
-    width: 100%;
-  }
-  #samsung {
+  #button-container {
     width: 80%;
-    margin-top: 2vh;
+    margin: auto;
+    position: relative;
+    div {
+      width: 33.33333%;
+      float: left;
+    }
+    #telegram, #download {
+      width: 100%;
+    }
+  }
+  #samsung-container {
+    width: 30%;
+    margin: auto;
+    #samsung {
+      width: 80%;
+      margin-top: 2vh;
+    }
   }
 }
 
-/* For desktop: */
-@media only screen and (min-device-width: 768px) {
+/* For landscape views: */
+@media only screen and (orientation: landscape) {
+  #image-sharing {
+    min-height: 97vh;
+  }
   #image-container {
-    height: 60vh;
-    width: 40%;
+    width: 50%;
     margin: auto;
     border-radius: 15px;
+    img {
+      width: 100%;
+    }
   }
   #telegram-container {
     margin-left: 25%;
   }
-  #telegram, #download {
-    width: 100%;
-    cursor: pointer;
+  #button-container {
+    width: 80%;
+    margin: auto;
+    position: relative;
+    div {
+      width: 16.666666%;
+      float: left;
+    }
+    #telegram, #download {
+      width: 100%;
+      cursor: pointer;
+    }
   }
   .small-br {
     display: none;
   }
-  #samsung {
+  #samsung-container {
     width: 30%;
+    margin: auto;
+    #samsung {
+      width: 30%;
+    }
   }
+
 }

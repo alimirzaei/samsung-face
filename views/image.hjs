@@ -29,30 +29,28 @@
     <div id="image-sharing">
       <br>
       <div id="image-container" class="w3-blue">
-        <img id="image" src="{{ imageUrl }}" style="width:100%; height:100%;" alt="">
+        <img id="image" src="{{ imageUrl }}" alt="">
       </div>
 
       <br>
       <br class="small-br">
 
-      <div class="w3-row" style="width: 80%; margin: auto; position: relative;">
-        <div id="telegram-container" class="w3-col s4 l2">
+      <div id="button-container" class="w3-row">
+        <div id="telegram-container">
           <img id="telegram" alt="">
         </div>
-        <div class="w3-col s4 l2">
+        <div>
           <span style="visibility: hidden;">s</span>
         </div>
-        <div class="w3-col s4 l2">
+        <div>
           <img id="download" alt="">
         </div>
       </div>
-
-      <div class="w3-center" style="width: 30%; margin: auto;">
-        <img id="samsung" alt="">
-      </div>
-
     </div>
 
+    <div id="samsung-container" class="w3-center">
+      <img id="samsung" alt="">
+    </div>
     <!-- happy new year application code -->
     <script type="text/javascript" src="/javascripts/image.js"></script>
   </body>
