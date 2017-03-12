@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 
-router.get('/:id', function(req, res, next) {
+router.get('/app/:id', function(req, res, next) {
   switch (Number(req.params.id)) {
     case 1: // top left
       res.render('image', { imageUrl: '/images/app/egg-card.png' });

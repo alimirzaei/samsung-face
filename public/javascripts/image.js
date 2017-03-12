@@ -26,12 +26,13 @@ $(function () {
       link.remove();
     },
     downloadImage: function () {
-      var link = document.createElement('a');
-      link.href = view.$image.attr("src");
-      // TODO: specify a good name for each card in link.download
-      link.download = "download.png";
-      link.click();
-      link.remove();
+      // var link = document.createElement('a');
+      // link.href = view.$image.attr("src");
+      // // TODO: specify a good name for each card in link.download
+      // link.download = "download.png";
+      // link.click();
+      // link.remove();
+      window.location.href = "http://localhost:3000" + view.$image.attr("src");
     }
   };
 
@@ -54,6 +55,9 @@ $(function () {
     },
     render: function () {
       this.$imageSharing.parent().css("background-image", 'url(' + controller.getImageSources().background + ')');
+      this.$imageSharing.parent().css("background-size", '100% 100%');
+      this.$imageSharing.parent().css("min-width", '100vw');
+      this.$imageSharing.parent().css("min-height", '100vh');
       this.$telegram.attr("src", controller.getImageSources().telegram);
       this.$download.attr("src", controller.getImageSources().download);
       this.$samsungImage.attr("src", controller.getImageSources().samsung);
