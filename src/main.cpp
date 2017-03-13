@@ -15,13 +15,20 @@ void init() {
 }
 
 void amooNowroozMaker(const char* inputAddress, char* outputAddress) {
-    if(amoo == NULL)
+    if(amoo == NULL){
         qDebug() << "you have to init the module!!";
+        return;
+    }
+    QElapsedTimer timer;
+    timer.start();
+    
+
     cv::Mat input = cv::imread(std::string(inputAddress));
     cv::Mat output = amoo->getAmooNorouzImage(input);
     //cv::imshow("",output);
     //cv::waitKey(0);
     cv::imwrite(std::string(outputAddress), output);
+    qDebug() << timer.elapsed();
 }
 }
 //int main(int argc, char *argv[])

@@ -19,20 +19,20 @@ $(function () {
       var link = document.createElement('a');
       // TODO: change http://kingofwallpapers.com/image/image-025.jpg to view.$image.attr("src")
       var telegramLink = "https://telegram.me/share/url?url=" +
-                         "http://kingofwallpapers.com/image/image-025.jpg" +
-                         "&text='سال نو مبارک'";
+                         "http://144.76.97.166:3000" + view.$image.attr("src");
+
       link.href = telegramLink;
       link.click();
       link.remove();
     },
     downloadImage: function () {
-      // var link = document.createElement('a');
-      // link.href = view.$image.attr("src");
-      // // TODO: specify a good name for each card in link.download
-      // link.download = "download.png";
-      // link.click();
-      // link.remove();
-      window.location.href = "http://localhost:3000" + view.$image.attr("src");
+       var link = document.createElement('a');
+       link.href = view.$image.attr("src");
+       // TODO: specify a good name for each card in link.download
+       link.download = "download.png";
+       link.click();
+       link.remove();
+      // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");
     }
   };
 

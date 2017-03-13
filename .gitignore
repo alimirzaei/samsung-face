@@ -30,4 +30,6 @@ node_modules
 npm-debug.log
 
 # dlib model
-shape_predictor_68_face_landmarks.dat
+build/model/shape_predictor_68_face_landmarks.dat
+public/images/uploads
+public/images/processed
