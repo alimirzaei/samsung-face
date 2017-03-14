@@ -4,10 +4,10 @@ $(function () {
       background: "/images/app/background.png",
       happyNewYear: "/images/app/happy-new-year.png",
       beAmoo: "/images/app/be-amoo-button.png",
-      topLeftCard: "/images/app/egg-card.png",
-      topRightCard: "/images/app/fish-card.png",
-      bottomLeftCard: "/images/app/rooster-card.png",
-      bottomRightCard: "/images/app/grass-card.png",
+      topLeftCard: "/images/app/chat-card.jpg",
+      topRightCard: "/images/app/khros-card.jpg",
+      bottomLeftCard: "/images/app/sib-card.jpg",
+      bottomRightCard: "/images/app/sabze-card.jpg",
       amooCard: "/images/app/amoo-card.png",
       samsung: "/images/app/samsung.png"
     }

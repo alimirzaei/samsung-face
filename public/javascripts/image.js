@@ -23,7 +23,7 @@ $(function () {
       imageId = imageId[imageId.length - 1].split(".");
       imageId = imageId[0];
       var telegramLink = "https://telegram.me/share/url?url=" +
-                         "http://144.76.97.166:3000/image/download/" + imageId;
+                         "http://localhost:3000/image/download/" + imageId;
 
       link.href = telegramLink;
       link.click();
