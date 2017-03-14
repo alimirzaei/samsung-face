@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="utf-8">
-    <title>عمو نوروز شو!</title>
+    <title></title>
+    <meta property="og:title" content="Title" />
+    <meta property="og:site_name" content="Site name"/>
+    <meta property="og:description" content="Description" />
+    <meta property="og:image" content="Link to your logo" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="/stylesheets/image.css">
