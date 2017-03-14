@@ -1,11 +1,14 @@
   /* For portrait views: */
 @media only screen and (orientation: portrait) {
+  #happy-new-year {
+    min-height: 95vh;
+  }
   #be-amoo {
     width: 90%;
     cursor: pointer;
   }
   #happy-new-year-text-container{
-    width: 60%;
+    width: 50%;
     margin: auto;
     img {
       width: 100%;
@@ -25,7 +28,7 @@
   }
 
   #top-cards-container {
-    width: 60%;
+    width: 55%;
     margin: auto;
     div {
       width: 49.999999%;
@@ -42,7 +45,7 @@
   }
 
   #bottom-cards-container {
-    width: 90%;
+    width: 81.81%;
     margin: auto;
     div {
       width: 33.333333%;
@@ -54,7 +57,7 @@
 /* For landscape views: */
 @media only screen and (orientation: landscape) {
     #happy-new-year {
-      min-height: 97vh;
+      min-height: 95vh;
     }
     #be-amoo {
       width: 50%;
