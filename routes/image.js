@@ -21,4 +21,9 @@ router.get('/app/:id', function(req, res, next) {
   }
 });
 
+
+router.get('/download/:id', function(req, res, next) {
+    res.render('amoo-norooz', { imageId: req.params.id });
+});
+
 module.exports = router;

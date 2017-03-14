@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta property="og:title" content="Title" />
+    <meta property="og:site_name" content="Site name"/>
+    <meta property="og:description" content="Description" />
+    <meta property="og:image" content="Link to your logo" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+
+  </head>
+
+  <body>
+
+    <div class="w3-center">
+      <div style="width: 90%; margin: auto;">
+        <img style="width: 100%;" src="/images/processed/{{ imageId }}.png" alt="">
+      </div>
+      <br>
+      <div style="width: 80%; margin: auto;">
+        <a href="http://144.76.97.166:3000">
+          <img style="width: 60%; " src="/images/app/be-amoo-button.png">
+        </a>
+      </div>
+    </div>
+
+  </body>
+</html>

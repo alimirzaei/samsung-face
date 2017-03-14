@@ -18,8 +18,12 @@ $(function () {
     shareTelegramLink: function () {
       var link = document.createElement('a');
       // TODO: change http://kingofwallpapers.com/image/image-025.jpg to view.$image.attr("src")
+      var imageSrc = view.$image.attr("src");
+      var imageId = imageSrc.split("/");
+      imageId = imageId[imageId.length - 1].split(".");
+      imageId = imageId[0];
       var telegramLink = "https://telegram.me/share/url?url=" +
-                         "http://144.76.97.166:3000" + view.$image.attr("src");
+                         "http://144.76.97.166:3000/image/download/" + imageId;
 
       link.href = telegramLink;
       link.click();
