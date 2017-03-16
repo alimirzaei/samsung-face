@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <title></title>
     <meta property="og:title" content="happy new year!" />
-    <meta property="og:site_name" content="http://144.76.97.166:3000"/>
-    <meta property="og:description" content="Description" />
-    <meta property="og:image" content="http://144.76.97.166:3000/images/app/amoo-card.png" />
+    <meta property="og:site_name" content="samsung96.com"/>
+    <meta property="og:description" content="Des" />
+    <meta property="og:image" content="/images/processed/{{ imageId }}.png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="300" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
