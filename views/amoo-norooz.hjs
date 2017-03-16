@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <meta property="og:title" content="Title" />
-    <meta property="og:site_name" content="Site name"/>
+    <meta property="og:title" content="happy new year!" />
+    <meta property="og:site_name" content="http://144.76.97.166:3000"/>
     <meta property="og:description" content="Description" />
-    <meta property="og:image" content="Link to your logo" />
+    <meta property="og:image" content="http://144.76.97.166:3000/images/app/amoo-card.png" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
