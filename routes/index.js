@@ -8,21 +8,20 @@ var connection = mysql.createConnection({
   password : 'P@ss4Mysql@S@msung',
   database : 'samsung'
 });
- 
+connection.connect();
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var ip = req.headers['x-forwarded-for'] || 
-           req.connection.remoteAddress || 
+  var ip = req.headers['x-forwarded-for'] ||
+           req.connection.remoteAddress ||
            req.socket.remoteAddress ||
            req.connection.socket.remoteAddress;
-  console.warn(ip);
   var agent = useragent.parse(req.headers['user-agent']);
-  connection.connect();
   var query = connection.query('INSERT INTO request_info SET ?', {ip: ip, user_agent: agent}, function (error, results, fields) {
     if (error) throw error;
-    connection.end();
+    // connection.end();
   });
-  
+
 
   res.render('index', { title: 'Express' });
 });

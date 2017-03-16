@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#">
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <meta property="og:title" content="Title" />
-    <meta property="og:site_name" content="Site name"/>
+    <meta property="og:site_name" content="Site name" />
     <meta property="og:description" content="Description" />
     <meta property="og:image" content="Link to your logo" />
 
@@ -14,23 +16,27 @@
 
     <!-- 3rd party libraries -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-  </head>
-  <!-- Preloader -->
-  <script type="text/javascript">
-      //<![CDATA[
-          $(window).on('load', function() { // makes sure the whole site is loaded
-              $('#status').fadeOut(); // will first fade out the loading animation
-              $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-              $('body').delay(350).css({'overflow':'visible'});
-            })
-      //]]>
-  </script>
-  <body>
+</head>
+<!-- Preloader -->
+<script type="text/javascript">
+    //<![CDATA[
+    $(window).on('load', function() { // makes sure the whole site is loaded
+        $('#status').fadeOut(); // will first fade out the loading animation
+        $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+        $('body').delay(350).css({
+            'overflow': 'visible'
+        });
+    })
+    //]]>
+</script>
+
+<body>
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
-    <div id="image-sharing">
+
+    <!-- <div id="image-sharing">
       <br>
       <div id="image-container" class="w3-blue">
         <img id="image" src="{{ imageUrl }}" alt="">
@@ -54,8 +60,97 @@
 
     <div id="samsung-container" class="w3-center">
       <img id="samsung" alt="">
+    </div> -->
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1 style="color: grey;">عیدت مبارک</h1>
+            <p style="color: grey;">سامسونگ برای شما سالی سرشار از شادی و زندگی را آرزو دارد</p>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Content -->
+            <section id="content" class="main">
+                <img id="image" style="width: 100%;" src="{{ imageUrl }}">
+                <div style="margin: 0 auto; padding: 10%;">
+                    <span style=""><img onclick="downloadImage()"  style="cursor: pointer; width: 20%;" src="/images/app/download.png"></span>
+                    <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 20%;float: right" src="/images/app/share.png"></span>
+                </div>
+                <br>
+
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" style="color: #5F5F5F !important;">
+            <section>
+                <h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
+                <p style="text-align: right; direction: rtl;">
+
+                    روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
+                </p>
+                <ul class="actions">
+                    <li><a href="http://samsung.com/iran" class="button">وبسایت سامسونگ</a></li>
+                </ul>
+            </section>
+            <section>
+
+                <h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
+                <dl style="text-align: right; direction: rtl !important;" class="alt">
+                    <dt style="float: right">ایمیل</dt>
+                    <dd style="float: right"><a href="http://netwas.net/samsung/generic.html#" onclick="window.open(&#39;http://www.samsung.com/iran/support/erms3&#39;, &#39;open&#39;, &#39;width=725, height=600, scrollbars=yes, resizable=no&#39; );">ایمیلی ارسال کنید، و پاسخی سریع دریافت نمایید.</a></dd>
+                    <dt style="float: right">تلفن</dt>
+                    <dd style="float: right">تماس بگیرید تا با یکی از نمایندگان خدمات مشتری صحبت کنید.
+                    </dd>
+                    <dt style="float: right">سام سرویس</dt>
+                    <dd style="float: right"><a href="http://netwas.net/samsung/generic.html#">سام سرویس(مرکز پشتیبانی محصولات صوتی و تصویری، خانگی،( IT :021-8255</a></dd>
+                    <dt style="float: right">پشتیبانی</dt>
+                    <dd style="float: right"><a href="http://netwas.net/samsung/generic.html#">مرکز پشتیبانی تلفن‌های همراه
+								سامسونگ :42132-021</a></dd>
+                </dl>
+                <ul class="icons" style="direction: rtl; text-align: right;">
+                    <li><a href="http://netwas.net/samsung/generic.html#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+                    <li><a href="http://netwas.net/samsung/generic.html#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+                    <li><a href="http://netwas.net/samsung/generic.html#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
+                </ul>
+            </section>
+            <p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
+        </footer>
+
     </div>
+
+    <script type="text/javascript">
+    function shareTelegramLink () {
+      var link = document.createElement('a');
+      // TODO: change http://kingofwallpapers.com/image/image-025.jpg to view.$image.attr("src")
+      var imageSrc = $("#image").attr("src");
+      var imageId = imageSrc.split("/");
+      imageId = imageId[imageId.length - 1].split(".");
+      imageId = imageId[0];
+      var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId;
+
+      link.href = telegramLink;
+      link.click();
+      link.remove();
+    };
+    function downloadImage() {
+       var link = document.createElement('a');
+       link.href = $("#image").attr("src");
+       // TODO: specify a good name for each card in link.download
+       link.download = "download.png";
+       link.click();
+       link.remove();
+      // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");
+    }
+    </script>
+
     <!-- happy new year application code -->
-    <script type="text/javascript" src="/javascripts/image.js"></script>
-  </body>
+    <!-- <script type="text/javascript" src="/javascripts/image.js"></script> -->
+</body>
+
 </html>
