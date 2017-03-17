@@ -14,8 +14,8 @@ clsAmooNorouz::clsAmooNorouz(stuConfig _config)
     galaxyLogo = imread(this->config.galaxyLogoAddress, cv::IMREAD_UNCHANGED);
     float samsungAspectRatio =  (float)samsungLogo.cols / (float)samsungLogo.rows  ;
     float galaxyAspectRatio =  (float)galaxyLogo.cols / (float)galaxyLogo.rows  ;
-    cv::resize(samsungLogo, samsungLogo, cv::Size(this->config.samsungLogoHeight * samsungAspectRatio, this->config.samsungLogoHeight));
-    cv::resize(galaxyLogo, galaxyLogo, cv::Size(this->config.samsungLogoHeight * galaxyAspectRatio * 1.2, 1.2 * this->config.samsungLogoHeight));
+    cv::resize(samsungLogo, samsungLogo, cv::Size(int(this->config.samsungLogoHeight * samsungAspectRatio), this->config.samsungLogoHeight));
+    cv::resize(galaxyLogo, galaxyLogo, cv::Size(int(float(this->config.samsungLogoHeight) * galaxyAspectRatio * 1.2), int(1.2 * this->config.samsungLogoHeight)));
     landmarkDetector = QSharedPointer<clsFaceLandmarkDetection>(new clsFaceLandmarkDetection(config.modelAddress));
 }
 
@@ -151,6 +151,7 @@ void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
     fs << "leftEyeAddress" << leftEyeAddress;
     fs << "rightEyeAddress" << rightEyeAddress;
     fs << "samsungLogoAddress" << samsungLogoAddress;
+    fs << "galaxyLogoAddress" << galaxyLogoAddress;
     fs << "hatAddress" << hatAddress;
     fs << "modelAddress" << modelAddress;
     fs << "hatLandmarks" << hatLandmarks;
@@ -170,7 +171,7 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["leftEyeAddress"] >> leftEyeAddress;
         fs["rightEyeAddress"] >> rightEyeAddress;
         fs["samsungLogoAddress"] >> samsungLogoAddress;
-
+	fs["galaxyLogoAddress"] >> galaxyLogoAddress;
         fs["hatAddress"] >> hatAddress;
         fs["modelAddress"] >> modelAddress;
         fs["hatLandmarks"] >> hatLandmarks;

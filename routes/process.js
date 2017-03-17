@@ -22,6 +22,9 @@ router.get('/:id', upload.single('image'), function(req, res, next) {
   res.render('image', { imageUrl: '/images/processed/' + req.params.id + '.jpg'});
 });
 
-
+router.get('/', upload.single('image'), function(req, res, next) { 
+  processImage.amooNowroozMaker('./public/images/uploads/' +  'd26f08d255012f051582567086adc509' ,'./public/images/processed/' + 'd26f08d255012f051582567086adc509' + '.jpg');
+  res.render('image', { imageUrl: '/images/processed/' + 'd26f08d255012f051582567086adc509' + '.jpg'});
+});
 
 module.exports = router;
