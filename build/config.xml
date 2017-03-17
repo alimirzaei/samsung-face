@@ -19,6 +19,6 @@
   12 70 59 75 106 83 145 99 188 122</rightEyeLandmarks>
 
 <samsungLogoPosition>
-  20 20</samsungLogoPosition>
-<samsungLogoHeight>20</samsungLogoHeight>
+  0.05 0.05</samsungLogoPosition>
+<samsungLogoWidthPercent>0.2</samsungLogoWidthPercent>
 </opencv_storage>
