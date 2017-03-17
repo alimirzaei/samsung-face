@@ -219,10 +219,58 @@
         <form action="process" method="post" enctype="multipart/form-data">
           <input style="display: none;" id="file-input" type="file" accept="image/*" value="" name="image">
         </form>
+        <img style="display: none;" id="tmp-image" src="" alt="">
+        <canvas style="display: none;" id="tmp-canvas"></canvas>
 
         <script type="text/javascript">
           $("#file-input").on("change", function() {
-            $(this).parent().submit();
+            // $(this).parent().submit();
+            var img = document.querySelector('#tmp-image');
+            var file    = document.querySelector('#file-input').files[0];
+            var reader  = new FileReader();
+            var canvas = document.getElementById('tmp-canvas');
+
+            reader.addEventListener("load", function () {
+              img.src = reader.result;
+              var MAX_WIDTH = 640;
+              var MAX_HEIGHT = 480;
+              var width = img.width;
+              var height = img.height;
+
+              if (width > height) {
+                if (width > MAX_WIDTH) {
+                  height *= MAX_WIDTH / width;
+                  width = MAX_WIDTH;
+                }
+              } else {
+                if (height > MAX_HEIGHT) {
+                  width *= MAX_HEIGHT / height;
+                  height = MAX_HEIGHT;
+                }
+              }
+              canvas.width = width;
+              canvas.height = height;
+              var ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0, width, height);
+
+              canvas.toBlob(function(blob) {
+                var fd = new FormData();
+                fd.append("image", blob);
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "process");
+                xhr.onreadystatechange = function() {//Call a function when the state changes.
+                  if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                    window.location.href = 'process/' + JSON.parse(xhr.response).id;
+                  }
+                }
+                xhr.send(fd);
+              },"image/jpeg");
+            }, false);
+
+            if (file) {
+              reader.readAsDataURL(file);
+            }
+
           });
         </script>
         <!-- happy new year application code -->

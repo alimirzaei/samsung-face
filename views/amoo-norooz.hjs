@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <title></title>
     <meta property="og:title" content="happy new year!" />
-    <meta property="og:site_name" content="samsung96.com"/>
-    <meta property="og:description" content="Des" />
+    <meta property="og:site_name" content="www.samsung96.com"/>
+    <meta property="og:description" content="با یه عکس عمونوروزی از خودتون سال نو رو به بقیه تبریک بگین!
+روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وب سایت هست دیدن کنی." />
     <meta property="og:image" content="/images/processed/{{ imageId }}.png" />
-    <meta property="og:image:width" content="400" />
-    <meta property="og:image:height" content="300" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
@@ -22,7 +21,7 @@
       </div>
       <br>
       <div style="width: 80%; margin: auto;">
-        <a href="http://144.76.97.166:3000">
+        <a href="www.samsung96.com">
           <img style="width: 60%; " src="/images/app/be-amoo-button.png">
         </a>
       </div>
