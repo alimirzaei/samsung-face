@@ -10,15 +10,15 @@ public:
         stuConfig(): beardAddress("images/beard.png"), leftEyeAddress("images/eyebrow_left.png"),rightEyeAddress("images/eyebrow_right.png"),
             hatAddress("images/hat.png"), modelAddress("model/shape_predictor_68_face_landmarks.dat"), samsungLogoAddress("images/samsung.png"),
             galaxyLogoAddress("images/galaxy.png"),
-            processFrameSize(cv::Size(640,480)), samsungLogoPosition(cv::Point(20,20)), samsungLogoHeight(20)
+            processFrameSize(cv::Size(640,480)), samsungLogoPosition(cv::Point(0.1, 0.1)), samsungLogoWidthPercent(.2)
         {
         }
 
         std::string beardAddress, leftEyeAddress, rightEyeAddress, hatAddress, modelAddress,
         samsungLogoAddress, galaxyLogoAddress;
         cv::Size processFrameSize;
-        cv::Point samsungLogoPosition;
-        int samsungLogoHeight;
+        cv::Point2f samsungLogoPosition;
+        float samsungLogoWidthPercent;
         std::vector<int> beardLandmarkIndexs = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33};
         std::vector<int> hatLandmarkIndexs = {0, 8, 16};
         std::vector<int> leftEyeLandmarkIndexs = {17, 18, 19, 20, 21};

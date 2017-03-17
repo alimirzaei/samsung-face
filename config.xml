@@ -3,8 +3,11 @@
 <beardAddress>build/images/beard.png</beardAddress>
 <leftEyeAddress>build/images/eyebrow_left.png</leftEyeAddress>
 <rightEyeAddress>build/images/eyebrow_right.png</rightEyeAddress>
+<samsungLogoAddress>build/images/samsung.png</samsungLogoAddress>
+<galaxyLogoAddress>build/images/galaxy.png</galaxyLogoAddress>
 <hatAddress>build/images/hat.png</hatAddress>
 <modelAddress>build/model/shape_predictor_68_face_landmarks.dat</modelAddress>
+
 <hatLandmarks>
   70 401 197 604 323 396</hatLandmarks>
 <beardLandmarks>
@@ -14,4 +17,8 @@
   22 123 55 105 101 89 153 79 206 68</leftEyeLandmarks>
 <rightEyeLandmarks>
   12 70 59 75 106 83 145 99 188 122</rightEyeLandmarks>
+
+<samsungLogoPosition>
+  0.05 0.05</samsungLogoPosition>
+<samsungLogoWidthPercent>0.2</samsungLogoWidthPercent>
 </opencv_storage>

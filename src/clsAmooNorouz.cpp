@@ -12,10 +12,6 @@ clsAmooNorouz::clsAmooNorouz(stuConfig _config)
     rightEye = imread(this->config.rightEyeAddress, cv::IMREAD_UNCHANGED);
     samsungLogo = imread(this->config.samsungLogoAddress, cv::IMREAD_UNCHANGED);
     galaxyLogo = imread(this->config.galaxyLogoAddress, cv::IMREAD_UNCHANGED);
-    float samsungAspectRatio =  (float)samsungLogo.cols / (float)samsungLogo.rows  ;
-    float galaxyAspectRatio =  (float)galaxyLogo.cols / (float)galaxyLogo.rows  ;
-    cv::resize(samsungLogo, samsungLogo, cv::Size(int(this->config.samsungLogoHeight * samsungAspectRatio), this->config.samsungLogoHeight));
-    cv::resize(galaxyLogo, galaxyLogo, cv::Size(int(float(this->config.samsungLogoHeight) * galaxyAspectRatio * 1.2), int(1.2 * this->config.samsungLogoHeight)));
     landmarkDetector = QSharedPointer<clsFaceLandmarkDetection>(new clsFaceLandmarkDetection(config.modelAddress));
 }
 
@@ -133,12 +129,19 @@ Mat clsAmooNorouz::getTransformedHat(full_object_detection shape, Size _imageSiz
 
 Mat clsAmooNorouz::getTransformedLogo(Size _imageSize)
 {
+    float samsungAspectRatio =  (float)samsungLogo.rows / (float)samsungLogo.cols  ;
+    float galaxyAspectRatio =  (float)galaxyLogo.rows / (float)galaxyLogo.cols  ;
+    int width = this->config.samsungLogoWidthPercent * _imageSize.width;
+
+    cv::resize(samsungLogo, samsungLogo, cv::Size(width, width * samsungAspectRatio));
+    cv::resize(galaxyLogo, galaxyLogo, cv::Size(width * 0.8, width * 0.8 * galaxyAspectRatio));
+
     cv::Mat logo(_imageSize, CV_8UC4);
     logo.setTo(cv::Scalar::all(0));
-    this->samsungLogo.copyTo(logo(cv::Rect(this->config.samsungLogoPosition.x, this->config.samsungLogoPosition.y,
+    this->samsungLogo.copyTo(logo(cv::Rect(this->config.samsungLogoPosition.x * _imageSize.width, this->config.samsungLogoPosition.y * _imageSize.height,
                   this->samsungLogo.cols, this->samsungLogo.rows)));
-    int galaxy_x = logo.cols - this->config.samsungLogoPosition.x - this->galaxyLogo.cols;
-    int galaxy_y = this->config.samsungLogoPosition.y;
+    int galaxy_x = logo.cols - this->config.samsungLogoPosition.x * _imageSize.width - this->galaxyLogo.cols;
+    int galaxy_y = this->config.samsungLogoPosition.y * _imageSize.height;
     this->galaxyLogo.copyTo(logo(cv::Rect(galaxy_x, galaxy_y,
                   this->galaxyLogo.cols, this->galaxyLogo.rows)));
     return logo;
@@ -159,7 +162,7 @@ void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
     fs << "leftEyeLandmarks" << leftEyeLandmarks;
     fs << "rightEyeLandmarks" << rightEyeLandmarks;
     fs << "samsungLogoPosition" << samsungLogoPosition;
-    fs << "samsungLogoHeight" << samsungLogoHeight;
+    fs << "samsungLogoHeight" << samsungLogoWidthPercent;
     fs.release();
 }
 
@@ -181,7 +184,7 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["leftEyeLandmarks"] >> leftEyeLandmarks;
         fs["rightEyeLandmarks"] >> rightEyeLandmarks;
         fs["samsungLogoPosition"] >> samsungLogoPosition;
-        fs["samsungLogoHeight"] >> samsungLogoHeight;
+        fs["samsungLogoWidthPercent"] >> samsungLogoWidthPercent;
         fs.release();
         return true;
     }
