@@ -46,9 +46,10 @@ cv::Mat clsAmooNorouz::putOverlayOnImage(cv::Mat _input, cv::Mat _overlay)
     _input.copyTo(out);
     for(int i=0 ; i<_overlay.cols; i++)
         for(int j=0 ; j<_overlay.rows; j++) {
-            if(_overlay.at<cv::Vec4b>(j,i)[3] >.8)
-                out.at<cv::Vec3b>(j ,i) =
-                        cv::Vec3b(_overlay.at<cv::Vec4b>(j,i)[0], _overlay.at<cv::Vec4b>(j,i)[1], _overlay.at<cv::Vec4b>(j,i)[2]);
+            float opacity = (float)_overlay.at<cv::Vec4b>(j,i)[3]/255.0;
+            out.at<cv::Vec3b>(j ,i) =
+                    (opacity)*cv::Vec3b(_overlay.at<cv::Vec4b>(j,i)[0], _overlay.at<cv::Vec4b>(j,i)[1], _overlay.at<cv::Vec4b>(j,i)[2])
+                    +(1- opacity)*out.at<cv::Vec3b>(j ,i);
         }
     return out;
 
