@@ -31,10 +31,12 @@ void amooNowroozMaker(const char* inputAddress, char* outputAddress) {
     qDebug() << timer.elapsed();
 }
 }
+
+
 //int main(int argc, char *argv[])
 //{
 //    init();
-//    QString base = "/home/ali/Pictures/Webcam/";
+//    QString base = "/home/ali/Pictures/face/";
 //    QDir dir(base);
 //    QStringList files = dir.entryList(QStringList() << "*.jpg" <<"*.png");
 //    QElapsedTimer timer;

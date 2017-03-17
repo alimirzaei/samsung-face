@@ -8,13 +8,15 @@ class clsAmooNorouz
 public:
     struct stuConfig {
         stuConfig(): beardAddress("images/beard.png"), leftEyeAddress("images/eyebrow_left.png"),rightEyeAddress("images/eyebrow_right.png"),
-            hatAddress("images/hat.png"), modelAddress("model/shape_predictor_68_face_landmarks.dat"),
-            processFrameSize(cv::Size(640,480))
+            hatAddress("images/hat.png"), modelAddress("model/shape_predictor_68_face_landmarks.dat"), samsungLogoAddress("images/samsung.png"),
+            processFrameSize(cv::Size(640,480)), samsungLogoPosition(cv::Point(20,20)), samsungLogoWidth(100)
         {
         }
 
-        std::string beardAddress, leftEyeAddress, rightEyeAddress, hatAddress, modelAddress;
+        std::string beardAddress, leftEyeAddress, rightEyeAddress, hatAddress, modelAddress, samsungLogoAddress;
         cv::Size processFrameSize;
+        cv::Point samsungLogoPosition;
+        int samsungLogoWidth;
         std::vector<int> beardLandmarkIndexs = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33};
         std::vector<int> hatLandmarkIndexs = {0, 8, 16};
         std::vector<int> leftEyeLandmarkIndexs = {17, 18, 19, 20, 21};
@@ -32,7 +34,7 @@ public:
 
 private:
     QSharedPointer<clsFaceLandmarkDetection> landmarkDetector;
-    cv::Mat beard, hat, leftEye, rightEye;          // we hold images in RAM
+    cv::Mat beard, hat, leftEye, rightEye, samsungLogo;          // we hold images in RAM
     stuConfig config;
 
 private:
@@ -40,6 +42,7 @@ private:
     cv::Mat getTransformedBeard(full_object_detection shape, cv::Size _imageSize);
     cv::Mat getTransformedEyebrows(full_object_detection shape, cv::Size _imageSize);
     cv::Mat getTransformedHat(full_object_detection shape, cv::Size _imageSize);
+    cv::Mat getTransformedLogo(cv::Size _imageSize);
     cv::Mat putOverlayOnImage(cv::Mat _input, cv::Mat _overlay);
 };
 

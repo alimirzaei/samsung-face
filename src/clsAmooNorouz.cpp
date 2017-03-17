@@ -10,6 +10,9 @@ clsAmooNorouz::clsAmooNorouz(stuConfig _config)
     beard = imread(this->config.beardAddress, cv::IMREAD_UNCHANGED);
     leftEye = imread(this->config.leftEyeAddress, cv::IMREAD_UNCHANGED);
     rightEye = imread(this->config.rightEyeAddress, cv::IMREAD_UNCHANGED);
+    samsungLogo = imread(this->config.samsungLogoAddress, cv::IMREAD_UNCHANGED);
+    float aspectRatio =  (float)samsungLogo.rows / (float)samsungLogo.cols;
+    cv::resize(samsungLogo, samsungLogo, cv::Size(this->config.samsungLogoWidth,  int(aspectRatio * float(this->config.samsungLogoWidth))));
     landmarkDetector = QSharedPointer<clsFaceLandmarkDetection>(new clsFaceLandmarkDetection(config.modelAddress));
 }
 
@@ -29,6 +32,8 @@ cv::Mat clsAmooNorouz::getAmooNorouzImage(cv::Mat _input)
         out = this->putOverlayOnImage(out, beard);
         cv::Mat hat = getTransformedHat(fullObjects[k], out.size());
         out = this->putOverlayOnImage(out, hat);
+        cv::Mat logo = getTransformedLogo(out.size());
+        out = this->putOverlayOnImage(out, logo);
     }
 
     return out;
@@ -122,19 +127,30 @@ Mat clsAmooNorouz::getTransformedHat(full_object_detection shape, Size _imageSiz
 
 }
 
+Mat clsAmooNorouz::getTransformedLogo(Size _imageSize)
+{
+    cv::Mat logo(_imageSize, CV_8UC4);
+    logo.setTo(cv::Scalar::all(0));
+    this->samsungLogo.copyTo(logo(cv::Rect(this->config.samsungLogoPosition.x, this->config.samsungLogoPosition.y,
+                  this->samsungLogo.cols, this->samsungLogo.rows)));
+    return logo;
+}
+
 void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
 {
     cv::FileStorage fs(_fileName, cv::FileStorage::WRITE);
     fs << "beardAddress" << beardAddress;
     fs << "leftEyeAddress" << leftEyeAddress;
     fs << "rightEyeAddress" << rightEyeAddress;
+    fs << "samsungLogoAddress" << samsungLogoAddress;
     fs << "hatAddress" << hatAddress;
     fs << "modelAddress" << modelAddress;
     fs << "hatLandmarks" << hatLandmarks;
     fs << "beardLandmarks" << beardLandmarks;
     fs << "leftEyeLandmarks" << leftEyeLandmarks;
     fs << "rightEyeLandmarks" << rightEyeLandmarks;
-
+    fs << "samsungLogoPosition" << samsungLogoPosition;
+    fs << "samsungLogoWidth" << samsungLogoWidth;
     fs.release();
 }
 
@@ -145,6 +161,7 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["beardAddress"] >> beardAddress;
         fs["leftEyeAddress"] >> leftEyeAddress;
         fs["rightEyeAddress"] >> rightEyeAddress;
+        fs["samsungLogoAddress"] >> samsungLogoAddress;
 
         fs["hatAddress"] >> hatAddress;
         fs["modelAddress"] >> modelAddress;
@@ -154,6 +171,8 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["beardLandmarks"] >> beardLandmarks;
         fs["leftEyeLandmarks"] >> leftEyeLandmarks;
         fs["rightEyeLandmarks"] >> rightEyeLandmarks;
+        fs["samsungLogoPosition"] >> samsungLogoPosition;
+        fs["samsungLogoWidth"] >> samsungLogoWidth;
         fs.release();
         return true;
     }
