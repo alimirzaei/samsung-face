@@ -5,7 +5,7 @@ var useragent = require('useragent');
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'P@ss4Mysql@S@msung',
+  password : '123456',
   database : 'samsung'
 });
 connection.connect();

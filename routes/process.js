@@ -13,8 +13,15 @@ processImage.init();
 
 /* GET image page with processedImage */
 router.post('/', upload.single('image'), function(req, res, next) {
-  processImage.amooNowroozMaker(req.file.path, './public/images/processed/' + req.file.filename + '.png');
-  res.render('image', { imageUrl: '/images/processed/' + req.file.filename + '.png'});
+  console.warn(req.file.path);
+  processImage.amooNowroozMaker(req.file.path, './public/images/processed/' + req.file.filename + '.jpg');
+  res.json({id: req.file.filename});
 });
+
+router.get('/:id', upload.single('image'), function(req, res, next) {
+  res.render('image', { imageUrl: '/images/processed/' + req.params.id + '.jpg'});
+});
+
+
 
 module.exports = router;

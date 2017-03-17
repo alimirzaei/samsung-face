@@ -142,7 +142,7 @@
        var link = document.createElement('a');
        link.href = $("#image").attr("src");
        // TODO: specify a good name for each card in link.download
-       link.download = "download.png";
+       link.download = "download.jpg";
        link.click();
        link.remove();
       // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");
