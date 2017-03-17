@@ -4,6 +4,7 @@
 <leftEyeAddress>images/eyebrow_left.png</leftEyeAddress>
 <rightEyeAddress>images/eyebrow_right.png</rightEyeAddress>
 <samsungLogoAddress>images/samsung.png</samsungLogoAddress>
+<galaxyLogoAddress>images/galaxy.png</galaxyLogoAddress>
 <hatAddress>images/hat.png</hatAddress>
 <modelAddress>model/shape_predictor_68_face_landmarks.dat</modelAddress>
 
@@ -19,5 +20,5 @@
 
 <samsungLogoPosition>
   20 20</samsungLogoPosition>
-<samsungLogoWidth>100</samsungLogoWidth>
+<samsungLogoHeight>20</samsungLogoHeight>
 </opencv_storage>
