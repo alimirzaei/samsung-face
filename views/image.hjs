@@ -7,22 +7,22 @@
 
     <!-- Google Analytics -->
     <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-93944499-1', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-93944499-1', 'auto');
+        ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
-
-
-    <title></title>
-    <meta property="og:title" content="Title" />
-    <meta property="og:site_name" content="Site name" />
-    <meta property="og:description" content="Description" />
-    <meta property="og:image" content="Link to your logo" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="/stylesheets/image.css">
@@ -50,31 +50,6 @@
         <div id="status">&nbsp;</div>
     </div>
 
-    <!-- <div id="image-sharing">
-      <br>
-      <div id="image-container" class="w3-blue">
-        <img id="image" src="{{ imageUrl }}" alt="">
-      </div>
-
-      <br>
-      <br class="small-br">
-
-      <div id="button-container" class="w3-row">
-        <div id="telegram-container">
-          <img id="telegram" alt="">
-        </div>
-        <div>
-          <span style="visibility: hidden;">s</span>
-        </div>
-        <div>
-          <img id="download" alt="">
-        </div>
-      </div>
-    </div>
-
-    <div id="samsung-container" class="w3-center">
-      <img id="samsung" alt="">
-    </div> -->
     <!-- Wrapper -->
     <div id="wrapper">
 
@@ -95,9 +70,7 @@
                     <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 20%;float: right" src="/images/app/share.png"></span>
                 </div>
                 <br>
-
             </section>
-
         </div>
 
         <!-- Footer -->
@@ -105,7 +78,6 @@
             <section>
                 <h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
                 <p style="text-align: right; direction: rtl;">
-
                     روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
                 </p>
                 <ul class="actions">
@@ -113,7 +85,6 @@
                 </ul>
             </section>
             <section>
-
                 <h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
                 <dl style="text-align: right; direction: rtl !important;" class="alt">
                     <dt style="float: right">ایمیل</dt>
@@ -139,32 +110,30 @@
     </div>
 
     <script type="text/javascript">
-    function shareTelegramLink () {
-      var link = document.createElement('a');
-      // TODO: change http://kingofwallpapers.com/image/image-025.jpg to view.$image.attr("src")
-      var imageSrc = $("#image").attr("src");
-      var imageId = imageSrc.split("/");
-      imageId = imageId[imageId.length - 1].split(".");
-      imageId = imageId[0];
-      var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId;
+        function shareTelegramLink() {
+            var link = document.createElement('a');
+            // TODO: change http://kingofwallpapers.com/image/image-025.jpg to view.$image.attr("src")
+            var imageSrc = $("#image").attr("src");
+            var imageId = imageSrc.split("/");
+            imageId = imageId[imageId.length - 1].split(".");
+            imageId = imageId[0];
+            var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId;
 
-      link.href = telegramLink;
-      link.click();
-      link.remove();
-    };
-    function downloadImage() {
-       var link = document.createElement('a');
-       link.href = $("#image").attr("src");
-       // TODO: specify a good name for each card in link.download
-       link.download = "download.jpg";
-       link.click();
-       link.remove();
-      // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");
-    }
+            link.href = telegramLink;
+            link.click();
+            link.remove();
+        };
+
+        function downloadImage() {
+            var link = document.createElement('a');
+            link.href = $("#image").attr("src");
+            // TODO: specify a good name for each card in link.download
+            link.download = "download.jpg";
+            link.click();
+            link.remove();
+            // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");
+        }
     </script>
-
-    <!-- happy new year application code -->
-    <!-- <script type="text/javascript" src="/javascripts/image.js"></script> -->
 </body>
 
 </html>

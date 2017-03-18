@@ -1,41 +1,29 @@
 <!DOCTYPE html>
-<!--
-	Webdesign and developed by
-	Reza Agahi,Ali , Navid Haeri
-	reza.agahi.88@gmail.com
-	navid.it.haeri@gmail.com
-	Samsung norooz Campaign 96
--->
 <html prefix="og: http://ogp.me/ns#">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Google Analytics -->
     <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-93944499-1', 'auto');
-    ga('send', 'pageview');
+        ga('create', 'UA-93944499-1', 'auto');
+        ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
 
-    <!--[if lte IE 8]><!--<script src="assets/js/ie/html5shiv.js"></script>-->
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <!--<link rel="stylesheet" href="assets/css/ie9.css" />-->
-    <![endif]-->
-    <!--[if lte IE 8]>
-    <!--<link rel="stylesheet" href="assets/css/ie8.css" />-->
-    <![endif]-->
     <title>عمو نوروز شو!</title>
-    <meta property="og:title" content="Title" />
-    <meta property="og:site_name" content="Site name"/>
-    <meta property="og:description" content="Description" />
-    <meta property="og:image" content="Link to your logo" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
@@ -49,247 +37,182 @@
 
   <!-- Preloader -->
   <script type="text/javascript">
-      //<![CDATA[
-          $(window).on('load', function() { // makes sure the whole site is loaded
-              $('#status').fadeOut(); // will first fade out the loading animation
-              $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-              $('body').delay(350).css({'overflow':'visible'});
-            })
-      //]]>
-    </script>
+      $(window).on('load', function() { // makes sure the whole site is loaded
+          $('#status').fadeOut(); // will first fade out the loading animation
+          $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+          $('body').delay(350).css({'overflow':'visible'});
+      })
+  </script>
 
-    <!-- <div id="preloader">
+    <body>
+    <!-- Preloader -->
+    <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
 
-    <div id="happy-new-year">
-      <br>
-      <div style="width: 60%; margin-left: auto;">
-        <img id="be-amoo" alt="">
-      </div>
-      <br>
-      <div id="happy-new-year-text-container" class="w3-center" >
-        <img alt="">
-      </div>
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-      <br>
-      <br>
+        <!-- Header -->
+        <header id="header" class="alt" style="padding-top: 0px !important;">
+            <span class="logo" style="width: 70% !important; margin: 0 auto; margin-top: 20px !important; margin-bottom: 30px;"><img src="/images/app/samsung.png"></span>
+            <span class="logo" style="width: 70% !important; margin: 0 auto; margin-bottom: 30px;"><img src="/images/app/happy-new-year copy.png" alt="" /></span>
+            <h2 style="color: #5f5f5f;">عیدی سامسونگ موبایل به شما </h2>
+            <p style="color: #5f5f5f;direction: rtl;">کارت تبریک های سال نو و کارت تبریک ویژه با تصویر خودتون! <br />
+            </p>
+        </header>
 
-      <div id="top-cards-container" class="w3-row w3-center">
-        <div>
-          <span style="visibility: hidden;">s</span>
-        </div>
-        <div>
-          <img class="card" id="top-left-card" alt="" >
-        </div>
-        <div>
-          <img class="card" id="top-right-card" alt="" >
-        </div>
-        <div>
-          <span style="visibility: hidden;">s</span>
-        </div>
-      </div>
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="#second">کارت پستال های آماده</a></li>
+                <li><a href="#intro" class="active">عمو نوروز شو</a></li>
+            </ul>
+        </nav>
 
-      <br>
+        <!-- Main -->
+        <div id="main">
 
-      <div id="bottom-cards-container" class="w3-row w3-center">
-        <div id="bottom-left-card-container">
-          <img class="card" id="bottom-left-card" alt="">
-        </div>
-        <div>
-          <img class="card" id="amoo-card" alt="">
-        </div>
-        <div>
-          <img class="card" id="bottom-right-card" alt="">
-        </div>
-      </div>
+            <!-- Introduction -->
+            <section id="intro" class="main">
+                <div class="spotlight">
+                    <div class="content">
+                        <header class="major">
+                            <h2 style="direction: rtl;">عمو نوروز شو!</h2>
+                        </header>
+                        <p style="direction: rtl;">با یه عکس عمو نوروزی از خودتون سال نو رو به بقیه تبریک بگین!</p>
+                        <p style="direction: rtl;">روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وبسایت هست استفاده کنی.</p>
 
-      <form action="process" method="post" enctype="multipart/form-data">
-        <input style="display: none;" id="file-input" type="file" accept="image/*" value="" name="image">
-      </form>
+                        <div style="display: inline; direction: rtl; margin-top: 5px;">
+                            <a onclick="$('#file-input').click();" id="be-amoo" style="background: #c7c9c8; width: 100%; padding-top: 3px;" class="button"><i style="color: white; font-size: 20px !important;" class="fa fa-camera" aria-hidden="true"></i> عمو نوروز شو! </a>
+                        </div>
+
+                    </div>
+                    <span class="image"><img src="/images/app/amoonorooz.jpg" alt="" /></span>
+                </div>
+            </section>
+
+            <!-- Second Section -->
+            <section id="second" class="main special">
+                <header class="major">
+                    <h2 style="direction: rtl;">برای دوستانتون کارت تبریک بفرستین!</h2>
+                    <p style="direction: rtl;"> خیلی ساده می تونین از بین کارت تبریک های زیر یکی رو انتخاب کنین و برای دوستتون بفرستین.</p>
+                </header>
+                <div class="w3-row">
+                    <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/1'" style="width: 100%; cursor: pointer;" src="/images/app/khros-01.jpg">
+                    </div>
+                    <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/2'" style="width: 100%; cursor: pointer;" src="/images/app/khros-02.jpg">
+                    </div>
+                    <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/3'" style="width: 100%; cursor: pointer;" src="/images/app/khros-03.jpg">
+                    </div>
+                    <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/4'" style="width: 100%; cursor: pointer;" src="/images/app/khros-04.jpg">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" style="color: #5F5F5F !important;">
+            <section>
+                <h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
+                <p style="text-align: right; direction: rtl;">
+                    روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
+                </p>
+                <ul class="actions">
+                    <li><a href="http://samsung.com/iran" class="button">وبسایت سامسونگ</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
+                <dl style="text-align: right; direction: rtl !important;" class="alt">
+                    <dt style="float: right">ایمیل</dt>
+                    <dd style="float: right"><a href="#" onclick="window.open('http://www.samsung.com/iran/support/erms3', 'open', 'width=725, height=600, scrollbars=yes, resizable=no' );">ایمیلی ارسال کنید، و پاسخی سریع دریافت نمایید.</a></dd>
+                    <dt style="float: right">تلفن</dt>
+                    <dd style="float: right">تماس بگیرید تا با یکی از نمایندگان خدمات مشتری صحبت کنید.
+                    </dd>
+                    <dt style="float: right">سام سرویس</dt>
+                    <dd style="float: right"><a href="#">سام سرویس(مرکز پشتیبانی محصولات صوتی و تصویری، خانگی،( IT :021-8255</a></dd>
+                    <dt style="float: right">پشتیبانی</dt>
+                    <dd style="float: right"><a href="#">مرکز پشتیبانی تلفن‌های همراه
+                  سامسونگ :42132-021</a></dd>
+                </dl>
+                <ul class="icons" style="direction: rtl; text-align: right;">
+                    <li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
+                </ul>
+            </section>
+            <p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
+        </footer>
 
     </div>
-    <div id="samsung-container" class="w3-center">
-      <img id="samsung" alt="">
-    </div> -->
 
-    <body>
-        <!-- Preloader -->
-        <div id="preloader">
-            <div id="status">&nbsp;</div>
-        </div>
+    <form action="process" method="post" enctype="multipart/form-data">
+        <input style="display: none;" id="file-input" type="file" accept="image/*" value="" name="image">
+    </form>
+    <img style="display: none;" id="tmp-image" src="" alt="">
+    <canvas style="display: none;" id="tmp-canvas"></canvas>
 
-        <!-- Wrapper -->
-        <div id="wrapper">
-
-            <!-- Header -->
-            <header id="header" class="alt" style="padding-top: 0px !important;">
-                <span class="logo" style="width: 70% !important; margin: 0 auto; margin-top: 20px !important; margin-bottom: 30px;"><img src="/images/app/samsung.png"></span>
-                <span class="logo" style="width: 70% !important; margin: 0 auto; margin-bottom: 30px;"><img src="/images/app/happy-new-year copy.png" alt="" /></span>
-                <h2 style="color: #5f5f5f;">عیدی سامسونگ موبایل به شما </h2>
-                <p style="color: #5f5f5f;direction: rtl;">کارت تبریک های سال نو و کارت تبریک ویژه با تصویر خودتون! <br />
-                </p>
-            </header>
-
-            <!-- Nav -->
-            <nav id="nav">
-                <ul>
-                    <li><a href="#intro" class="active">عمو نوروز شو</a></li>
-                    <li><a href="#second">کارت پستال های آماده</a></li>
-                </ul>
-            </nav>
-
-            <!-- Main -->
-            <div id="main">
-
-                <!-- Introduction -->
-                <section id="intro" class="main">
-                    <div class="spotlight">
-                        <div class="content">
-                            <header class="major">
-                                <h2 style="direction: rtl;">عمو نوروز شو!</h2>
-                            </header>
-                            <p style="direction: rtl;">با یه عکس عمو نوروزی از خودتون سال نو رو به بقیه تبریک بگین!.</p>
-                            <p>روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وبسایت هست استفاده کنی.</p>
-                            <ul class="actions" style=" float: left;">
-                                <li><a style="direction: rtl;" href="#second" class="button">کارت تبریک های آماده!</a></li>
-                            </ul>
-                            <ul class="actions" style=" !important; float: left;">
-                                <!--<li ><a href="#second" class="button">کارت پستال ها</a></li>-->
-                                <li style=" float: left; "><a onclick="$('#file-input').click();" id="be-amoo" style="background: #c7c9c8; width: 210%; padding-top: 3px;" class="button"><i style="color: white; font-size: 20px !important;" class="fa fa-camera" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                        <span class="image"><img src="/images/app/amoonorooz.jpg" alt="" /></span>
-                    </div>
-                </section>
-
-                <!-- Second Section -->
-                <section id="second" class="main special">
-                    <header class="major">
-                        <h2 style="direction: rtl;">برای دوستانتون کارت تبریک بفرستین!</h2>
-                        <p>
-                            خیلی ساده می تونین از بین کارت تبریک های زیر یکی رو انتخاب کنین و برای دوستتون بفرستین.</p>
-                    </header>
-                    <ul class="statistics">
-                        <li class="style1" style="    padding: 0px; margin: 0px;">
-                            <img onclick="window.location.href='/image/app/1'" style="width: 300px; height: 200px; cursor: pointer;" src="/images/app/khros-01.jpg">
-                        </li>
-                        <li class="style2" style="    padding: 0px;margin: 0px;">
-                            <img onclick="window.location.href='/image/app/2'" style="width: 300px; height: 200px; cursor: pointer;" src="/images/app/khros-02.jpg">
-                        </li>
-                        <li class="style3" style="    padding: 0px;margin: 0px;">
-                            <img onclick="window.location.href='/image/app/3'" style="width: 300px; height: 200px; cursor: pointer;" src="/images/app/khros-03.jpg">
-                        </li>
-                        <li class="style4" style="    padding: 0px;margin: 0px;">
-                            <img onclick="window.location.href='/image/app/4'" style="width: 300px; height: 200px; cursor: pointer;" src="/images/app/khros-04.jpg">
-                        </li>
-
-                    </ul>
-                </section>
-
-                <!-- Get Started -->
-
-            </div>
-
-            <!-- Footer -->
-            <footer id="footer" style="color: #5F5F5F !important;">
-                <section>
-                    <h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
-                    <p style="text-align: right; direction: rtl;">
-
-                        روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
-                    </p>
-                    <ul class="actions">
-                        <li><a href="http://samsung.com/iran" class="button">وبسایت سامسونگ</a></li>
-                    </ul>
-                </section>
-                <section>
-                    <h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
-                    <dl style="text-align: right; direction: rtl !important;" class="alt">
-                        <dt style="float: right">ایمیل</dt>
-                        <dd style="float: right"><a href="#" onclick="window.open('http://www.samsung.com/iran/support/erms3', 'open', 'width=725, height=600, scrollbars=yes, resizable=no' );">ایمیلی ارسال کنید، و پاسخی سریع دریافت نمایید.</a></dd>
-                        <dt style="float: right">تلفن</dt>
-                        <dd style="float: right">تماس بگیرید تا با یکی از نمایندگان خدمات مشتری صحبت کنید.
-                        </dd>
-                        <dt style="float: right">سام سرویس</dt>
-                        <dd style="float: right"><a href="#">سام سرویس(مرکز پشتیبانی محصولات صوتی و تصویری، خانگی،( IT :021-8255</a></dd>
-                        <dt style="float: right">پشتیبانی</dt>
-                        <dd style="float: right"><a href="#">مرکز پشتیبانی تلفن‌های همراه
-                  سامسونگ :42132-021</a></dd>
-                    </dl>
-                    <ul class="icons" style="direction: rtl; text-align: right;">
-                        <li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
-                    </ul>
-                </section>
-                <p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
-            </footer>
-
-        </div>
-
-        <form action="process" method="post" enctype="multipart/form-data">
-          <input style="display: none;" id="file-input" type="file" accept="image/*" value="" name="image">
-        </form>
-        <img style="display: none;" id="tmp-image" src="" alt="">
-        <canvas style="display: none;" id="tmp-canvas"></canvas>
-
-        <script type="text/javascript">
-          $("#file-input").on("change", function() {
+    <script type="text/javascript">
+        $("#file-input").on("change", function() {
             // $(this).parent().submit();
             var img = document.querySelector('#tmp-image');
-            var file    = document.querySelector('#file-input').files[0];
-            var reader  = new FileReader();
+            var file = document.querySelector('#file-input').files[0];
+            var reader = new FileReader();
             var canvas = document.getElementById('tmp-canvas');
 
-            reader.addEventListener("load", function () {
-              img.src = reader.result;
-              var MAX_WIDTH = 640;
-              var MAX_HEIGHT = 480;
-              var width = img.width;
-              var height = img.height;
+            reader.addEventListener("load", function() {
+                img.src = reader.result;
+                var MAX_WIDTH = 640;
+                var MAX_HEIGHT = 480;
+                var width = img.width;
+                var height = img.height;
 
-              if (width > height) {
-                if (width > MAX_WIDTH) {
-                  height *= MAX_WIDTH / width;
-                  width = MAX_WIDTH;
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
                 }
-              } else {
-                if (height > MAX_HEIGHT) {
-                  width *= MAX_HEIGHT / height;
-                  height = MAX_HEIGHT;
-                }
-              }
-              canvas.width = width;
-              canvas.height = height;
-              var ctx = canvas.getContext("2d");
-              ctx.drawImage(img, 0, 0, width, height);
+                canvas.width = width;
+                canvas.height = height;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, width, height);
 
-              canvas.toBlob(function(blob) {
-                var fd = new FormData();
-                fd.append("image", blob);
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "process");
-                xhr.onreadystatechange = function() {//Call a function when the state changes.
-                  if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-                    window.location.href = 'process/' + JSON.parse(xhr.response).id;
-                  }
-                }
-                xhr.send(fd);
-                $('body').delay(350).css({'overflow':'hidden'});
-                $('#preloader').delay(350).fadeIn('slow');
-                $('#status').fadeIn();
-              },"image/jpeg");
+                canvas.toBlob(function(blob) {
+                    var fd = new FormData();
+                    fd.append("image", blob);
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "process");
+                    xhr.onreadystatechange = function() { //Call a function when the state changes.
+                        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                            window.location.href = 'process/' + JSON.parse(xhr.response).id;
+                        }
+                    }
+                    xhr.send(fd);
+                    $('body').delay(350).css({
+                        'overflow': 'hidden'
+                    });
+                    $('#preloader').delay(350).fadeIn('slow');
+                    $('#status').fadeIn();
+                }, "image/jpeg");
             }, false);
 
             if (file) {
-              reader.readAsDataURL(file);
+                reader.readAsDataURL(file);
             }
-
-          });
-        </script>
-        <!-- happy new year application code -->
-        <!-- <script type="text/javascript" src="javascripts/index.js"></script> -->
-    </body>
+        });
+    </script>
+</body>
 
 </html>
