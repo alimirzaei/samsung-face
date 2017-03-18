@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Google Analytics -->
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -134,8 +134,8 @@
             <!-- Nav -->
             <nav id="nav">
                 <ul>
-                    <li><a href="#intro" class="active">عمو نوروز شو</a></li>
-                    <li><a href="#second">کارت پستال های آماده</a></li>
+                  <li><a href="#second">کارت پستال های آماده</a></li>
+                  <li><a href="#intro" class="active">عمو نوروز شو</a></li>
                 </ul>
             </nav>
 
@@ -149,15 +149,13 @@
                             <header class="major">
                                 <h2 style="direction: rtl;">عمو نوروز شو!</h2>
                             </header>
-                            <p style="direction: rtl;">با یه عکس عمو نوروزی از خودتون سال نو رو به بقیه تبریک بگین!.</p>
-                            <p>روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وبسایت هست استفاده کنی.</p>
-                            <ul class="actions" style=" float: left;">
-                                <li><a style="direction: rtl;" href="#second" class="button">کارت تبریک های آماده!</a></li>
-                            </ul>
-                            <ul class="actions" style=" !important; float: left;">
-                                <!--<li ><a href="#second" class="button">کارت پستال ها</a></li>-->
-                                <li style=" float: left; "><a onclick="$('#file-input').click();" id="be-amoo" style="background: #c7c9c8; width: 210%; padding-top: 3px;" class="button"><i style="color: white; font-size: 20px !important;" class="fa fa-camera" aria-hidden="true"></i></a></li>
-                            </ul>
+                            <p style="direction: rtl;">با یه عکس عمو نوروزی از خودتون سال نو رو به بقیه تبریک بگین!</p>
+                            <p style="direction: rtl;">روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وبسایت هست استفاده کنی.</p>
+
+                            <div style="display: inline; direction: rtl; margin-top: 5px;" >
+                              <a onclick="$('#file-input').click();" id="be-amoo" style="background: #c7c9c8; width: 100%; padding-top: 3px;" class="button"><i style="color: white; font-size: 20px !important;" class="fa fa-camera" aria-hidden="true"></i> عمو نوروز شو! </a>
+                            </div>
+
                         </div>
                         <span class="image"><img src="/images/app/amoonorooz.jpg" alt="" /></span>
                     </div>
@@ -167,10 +165,24 @@
                 <section id="second" class="main special">
                     <header class="major">
                         <h2 style="direction: rtl;">برای دوستانتون کارت تبریک بفرستین!</h2>
-                        <p>
-                            خیلی ساده می تونین از بین کارت تبریک های زیر یکی رو انتخاب کنین و برای دوستتون بفرستین.</p>
+                        <p style="direction: rtl;"> خیلی ساده می تونین از بین کارت تبریک های زیر یکی رو انتخاب کنین و برای دوستتون بفرستین.</p>
                     </header>
-                    <ul class="statistics">
+                    <div class="w3-row">
+                      <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/1'" style="width: 100%; cursor: pointer;" src="/images/app/khros-01.jpg">
+                      </div>
+                      <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/2'" style="width: 100%; cursor: pointer;" src="/images/app/khros-02.jpg">
+                      </div>
+                      <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/3'" style="width: 100%; cursor: pointer;" src="/images/app/khros-03.jpg">
+                      </div>
+                      <div class="w3-col l3 m3 s12 w3-padding">
+                        <img onclick="window.location.href='/image/app/4'" style="width: 100%; cursor: pointer;" src="/images/app/khros-04.jpg">
+                      </div>
+                    </div>
+
+                    <!-- <ul class="statistics">
                         <li class="style1" style="    padding: 0px; margin: 0px;">
                             <img onclick="window.location.href='/image/app/1'" style="width: 300px; height: 200px; cursor: pointer;" src="/images/app/khros-01.jpg">
                         </li>
@@ -184,7 +196,7 @@
                             <img onclick="window.location.href='/image/app/4'" style="width: 300px; height: 200px; cursor: pointer;" src="/images/app/khros-04.jpg">
                         </li>
 
-                    </ul>
+                    </ul> -->
                 </section>
 
                 <!-- Get Started -->
@@ -276,6 +288,9 @@
                   }
                 }
                 xhr.send(fd);
+                $('body').delay(350).css({'overflow':'hidden'});
+                $('#preloader').delay(350).fadeIn('slow');
+                $('#status').fadeIn();
               },"image/jpeg");
             }, false);
 
