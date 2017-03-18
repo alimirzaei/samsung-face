@@ -64,6 +64,10 @@
 
             <!-- Content -->
             <section id="content" class="main">
+                <div class="w3-center">
+                  <button onclick="window.location.href='http://www.samsung96.com'" type="button" name="button">از اول میخوام انتخاب کنم</button>
+                </div>
+                <br>
                 <img id="image" style="width: 100%;" src="{{ imageUrl }}">
                 <div style="margin: 0 auto; padding: 10%;">
                     <span style=""><img onclick="downloadImage()"  style="cursor: pointer; width: 20%;" src="/images/app/download.png"></span>
@@ -74,38 +78,28 @@
         </div>
 
         <!-- Footer -->
-        <footer id="footer" style="color: #5F5F5F !important;">
-            <section>
-                <h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
-                <p style="text-align: right; direction: rtl;">
-                    روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
-                </p>
-                <ul class="actions">
-                    <li><a href="http://samsung.com/iran" class="button">وبسایت سامسونگ</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
-                <dl style="text-align: right; direction: rtl !important;" class="alt">
-                    <dt style="float: right">ایمیل</dt>
-                    <dd style="float: right"><a href="http://netwas.net/samsung/generic.html#" onclick="window.open(&#39;http://www.samsung.com/iran/support/erms3&#39;, &#39;open&#39;, &#39;width=725, height=600, scrollbars=yes, resizable=no&#39; );">ایمیلی ارسال کنید، و پاسخی سریع دریافت نمایید.</a></dd>
-                    <dt style="float: right">تلفن</dt>
-                    <dd style="float: right">تماس بگیرید تا با یکی از نمایندگان خدمات مشتری صحبت کنید.
-                    </dd>
-                    <dt style="float: right">سام سرویس</dt>
-                    <dd style="float: right"><a href="http://netwas.net/samsung/generic.html#">سام سرویس(مرکز پشتیبانی محصولات صوتی و تصویری، خانگی،( IT :021-8255</a></dd>
-                    <dt style="float: right">پشتیبانی</dt>
-                    <dd style="float: right"><a href="http://netwas.net/samsung/generic.html#">مرکز پشتیبانی تلفن‌های همراه
-								سامسونگ :42132-021</a></dd>
-                </dl>
-                <ul class="icons" style="direction: rtl; text-align: right;">
-                    <li><a href="http://netwas.net/samsung/generic.html#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
-                    <li><a href="http://netwas.net/samsung/generic.html#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
-                    <li><a href="http://netwas.net/samsung/generic.html#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
-                </ul>
-            </section>
-            <p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
-        </footer>
+      	<footer id="footer" style="color: #5F5F5F !important;">
+      		<section>
+      			<h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
+      			<p style="text-align: right; direction: rtl;">
+      				روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
+      			</p>
+      			<p style="text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
+      			<ul class="actions">
+      				<li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
+      				<li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
+      			</ul>
+      		</section>
+      		<section>
+      			<h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
+
+      			<ul class="icons" style="direction: rtl; text-align: right;">
+      				<li><a href="#" style="border: 1px solid white; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 7px;" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+      				<li><a style="border: 1px solid white; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 7px;" href="https://www.instagram.com/samsungmobileir" class="icon fa-instagram "><span class="label">Instagram</span></a></li>
+      			</ul>
+      		</section>
+      		<p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
+      	</footer>
 
     </div>
 
