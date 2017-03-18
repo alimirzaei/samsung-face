@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+	Webdesign and developed by
+	Reza Agahi,Ali , Navid Haeri
+	reza.agahi.88@gmail.com
+	navid.it.haeri@gmail.com
+	Samsung norooz Campaign 96
+-->
+<html prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-93944499-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+    <!--[if lte IE 8]><!--<script src="assets/js/ie/html5shiv.js"></script>-->
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <!--<link rel="stylesheet" href="assets/css/ie9.css" />-->
+    <![endif]-->
+    <!--[if lte IE 8]>
+    <!--<link rel="stylesheet" href="assets/css/ie8.css" />-->
+    <![endif]-->
+    <title>عمو نوروز شو!</title>
+    <meta property="og:title" content="Title" />
+    <meta property="og:site_name" content="Site name"/>
+    <meta property="og:description" content="Description" />
+    <meta property="og:image" content="Link to your logo" />
+
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="/stylesheets/preloader.css">
+    <style media="screen">
+      @font-face { font-family: 'SamsungOneArabic'; src: url(../fonts/SamsungOneArabic-400.eot); src: url(../fonts/SamsungOneArabic-400.eot?#iefix) format("embedded-opentype"), url(../fonts/SamsungOneArabic-400.woff2) format("woff2"), url(../fonts/SamsungOneArabic-400.woff) format("woff"), url(../fonts/SamsungOneArabic-400.ttf) format("truetype"); font-weight: normal; font-style: normal; }
+    </style>
+
+    <!-- 3rd party libraries -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  </head>
+
+  <!-- Preloader -->
+  <script type="text/javascript">
+      //<![CDATA[
+          $(window).on('load', function() { // makes sure the whole site is loaded
+              $('#status').fadeOut(); // will first fade out the loading animation
+              $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
+              $('body').delay(350).css({'overflow':'visible'});
+            })
+      //]]>
+    </script>
+
+    <body style="direction: rtl;">
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+
+        <div class="w3-center">
+          <div style="width: 50%; margin: auto;">
+            <img width="100%" src="/images/app/be-amoo-button.png" alt="">
+          </div>
+          <span style="font-family: 'SamsungOneArabic'; font-size: 20px;">عمو نوروز تو راهه! چند دقیقه دیگه دوباره سعی کنید :)</span>
+        </div>
+    </body>
+
+</html>
