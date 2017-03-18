@@ -276,6 +276,9 @@
                   }
                 }
                 xhr.send(fd);
+                $('body').delay(350).css({'overflow':'hidden'});
+                $('#preloader').delay(350).fadeIn('slow');
+                $('#status').fadeIn();
               },"image/jpeg");
             }, false);
 
