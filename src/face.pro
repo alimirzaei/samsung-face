@@ -1,6 +1,6 @@
 QT += core
 QT -= gui
-TEMPLATE = lib
+TEMPLATE = app
 CONFIG += c++11
 
 LIBS += `pkg-config opencv --libs` -ldlib -lopenblas

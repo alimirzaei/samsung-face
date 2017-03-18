@@ -12,6 +12,7 @@ clsAmooNorouz::clsAmooNorouz(stuConfig _config)
     rightEye = imread(this->config.rightEyeAddress, cv::IMREAD_UNCHANGED);
     samsungLogo = imread(this->config.samsungLogoAddress, cv::IMREAD_UNCHANGED);
     galaxyLogo = imread(this->config.galaxyLogoAddress, cv::IMREAD_UNCHANGED);
+    noroozLogo = imread(this->config.noroozLogoAddress, cv::IMREAD_UNCHANGED);
     landmarkDetector = QSharedPointer<clsFaceLandmarkDetection>(new clsFaceLandmarkDetection(config.modelAddress));
 }
 
@@ -131,6 +132,7 @@ Mat clsAmooNorouz::getTransformedLogo(Size _imageSize)
 {
     float samsungAspectRatio =  (float)samsungLogo.rows / (float)samsungLogo.cols  ;
     float galaxyAspectRatio =  (float)galaxyLogo.rows / (float)galaxyLogo.cols  ;
+
     int width = this->config.samsungLogoWidthPercent * _imageSize.width;
 	cv::Mat samsungLogo_local;
     cv::resize(this->samsungLogo, samsungLogo_local, cv::Size(width, width * samsungAspectRatio));
@@ -145,6 +147,16 @@ Mat clsAmooNorouz::getTransformedLogo(Size _imageSize)
     int galaxy_y = this->config.samsungLogoPosition.y * _imageSize.height;
     galaxyLogo_local.copyTo(logo(cv::Rect(galaxy_x, galaxy_y,
                   galaxyLogo_local.cols, galaxyLogo_local.rows)));
+
+
+    float noroozAspectRatio =  (float)noroozLogo.rows / (float)noroozLogo.cols  ;
+    cv::Mat noroozLogo_local;
+    width = this->config.noroozLogoWidthPercent * _imageSize.width;
+    cv::resize(this->noroozLogo, noroozLogo_local, cv::Size(width, width * noroozAspectRatio));
+    int norooz_x = logo.cols - this->config.noroozLogoPosition.x * _imageSize.width - noroozLogo_local.cols;
+    int norooz_y = _imageSize.height - this->config.noroozLogoPosition.y * _imageSize.height - noroozLogo_local.rows;
+    noroozLogo_local.copyTo(logo(cv::Rect(norooz_x, norooz_y,
+                  noroozLogo_local.cols, noroozLogo_local.rows)));
     return logo;
 }
 
@@ -156,6 +168,7 @@ void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
     fs << "rightEyeAddress" << rightEyeAddress;
     fs << "samsungLogoAddress" << samsungLogoAddress;
     fs << "galaxyLogoAddress" << galaxyLogoAddress;
+    fs << "noroozLogoAddress" << noroozLogoAddress;
     fs << "hatAddress" << hatAddress;
     fs << "modelAddress" << modelAddress;
     fs << "hatLandmarks" << hatLandmarks;
@@ -163,7 +176,9 @@ void clsAmooNorouz::stuConfig::saveToFile(std::string _fileName)
     fs << "leftEyeLandmarks" << leftEyeLandmarks;
     fs << "rightEyeLandmarks" << rightEyeLandmarks;
     fs << "samsungLogoPosition" << samsungLogoPosition;
-    fs << "samsungLogoHeight" << samsungLogoWidthPercent;
+    fs << "noroozLogoPosition" << noroozLogoPosition;
+    fs << "samsungLogoWidthPercent" << samsungLogoWidthPercent;
+    fs << "noroozLogoWidthPercent" << noroozLogoWidthPercent;
     fs.release();
 }
 
@@ -175,7 +190,8 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["leftEyeAddress"] >> leftEyeAddress;
         fs["rightEyeAddress"] >> rightEyeAddress;
         fs["samsungLogoAddress"] >> samsungLogoAddress;
-	fs["galaxyLogoAddress"] >> galaxyLogoAddress;
+        fs["galaxyLogoAddress"] >> galaxyLogoAddress;
+        fs["noroozLogoAddress"] >> noroozLogoAddress;
         fs["hatAddress"] >> hatAddress;
         fs["modelAddress"] >> modelAddress;
         fs["hatLandmarks"] >> hatLandmarks;
@@ -185,7 +201,10 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["leftEyeLandmarks"] >> leftEyeLandmarks;
         fs["rightEyeLandmarks"] >> rightEyeLandmarks;
         fs["samsungLogoPosition"] >> samsungLogoPosition;
+        fs["noroozLogoPosition"] >> noroozLogoPosition;
         fs["samsungLogoWidthPercent"] >> samsungLogoWidthPercent;
+        fs["noroozLogoWidthPercent"] >> samsungLogoWidthPercent;
+
         fs.release();
         return true;
     }

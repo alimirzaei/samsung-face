@@ -5,6 +5,7 @@
 <rightEyeAddress>images/eyebrow_right.png</rightEyeAddress>
 <samsungLogoAddress>images/samsung.png</samsungLogoAddress>
 <galaxyLogoAddress>images/galaxy.png</galaxyLogoAddress>
+<noroozLogoAddress>images/norooz-mobarak.png</noroozLogoAddress>
 <hatAddress>images/hat.png</hatAddress>
 <modelAddress>model/shape_predictor_68_face_landmarks.dat</modelAddress>
 
@@ -21,4 +22,9 @@
 <samsungLogoPosition>
   0.05 0.05</samsungLogoPosition>
 <samsungLogoWidthPercent>0.2</samsungLogoWidthPercent>
+
+
+<noroozLogoPosition>
+  0.05 0.05</noroozLogoPosition>
+<noroozLogoWidthPercent>0.2</noroozLogoWidthPercent>
 </opencv_storage>

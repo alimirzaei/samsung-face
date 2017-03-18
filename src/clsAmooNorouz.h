@@ -9,16 +9,17 @@ public:
     struct stuConfig {
         stuConfig(): beardAddress("images/beard.png"), leftEyeAddress("images/eyebrow_left.png"),rightEyeAddress("images/eyebrow_right.png"),
             hatAddress("images/hat.png"), modelAddress("model/shape_predictor_68_face_landmarks.dat"), samsungLogoAddress("images/samsung.png"),
-            galaxyLogoAddress("images/galaxy.png"),
-            processFrameSize(cv::Size(640,480)), samsungLogoPosition(cv::Point(0.1, 0.1)), samsungLogoWidthPercent(.2)
+            galaxyLogoAddress("images/galaxy.png"), noroozLogoAddress("images/norooz-mobarak.png"),
+            processFrameSize(cv::Size(640,480)), samsungLogoPosition(cv::Point(0.1, 0.1)), samsungLogoWidthPercent(.2),
+            noroozLogoPosition(cv::Point(0.1, 0.1)), noroozLogoWidthPercent(.2)
         {
         }
 
         std::string beardAddress, leftEyeAddress, rightEyeAddress, hatAddress, modelAddress,
-        samsungLogoAddress, galaxyLogoAddress;
+        samsungLogoAddress, galaxyLogoAddress, noroozLogoAddress;
         cv::Size processFrameSize;
-        cv::Point2f samsungLogoPosition;
-        float samsungLogoWidthPercent;
+        cv::Point2f samsungLogoPosition, noroozLogoPosition;
+        float samsungLogoWidthPercent,noroozLogoWidthPercent;
         std::vector<int> beardLandmarkIndexs = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 33};
         std::vector<int> hatLandmarkIndexs = {0, 8, 16};
         std::vector<int> leftEyeLandmarkIndexs = {17, 18, 19, 20, 21};
@@ -36,7 +37,7 @@ public:
 
 private:
     QSharedPointer<clsFaceLandmarkDetection> landmarkDetector;
-    cv::Mat beard, hat, leftEye, rightEye, samsungLogo, galaxyLogo;          // we hold images in RAM
+    cv::Mat beard, hat, leftEye, rightEye, samsungLogo, galaxyLogo, noroozLogo;          // we hold images in RAM
     stuConfig config;
 
 private:
