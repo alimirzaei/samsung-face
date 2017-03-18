@@ -8,13 +8,14 @@ var RateLimit = require('ratelimit.js').RateLimit;
 var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
 var redis = require('redis');
 
-var rateLimiter = new RateLimit(redis.createClient(), [{interval: 1, limit: 8}]);
+var rateLimiter = new RateLimit(redis.createClient(), [{interval: 1, limit: 55}]);
 
 var options = {
   ignoreRedisErrors: true // defaults to false
 };
 var limitMiddleware = new ExpressMiddleware(rateLimiter, options);
 var limitEndpoint = limitMiddleware.middleware(function(req, res, next) {
+  console.warn("haayyyyyy");
   // res.status(429).json({message: 'rate limit exceeded'});
   res.render('busy', {});
 });
@@ -38,6 +39,7 @@ router.get('/:id', upload.single('image'), function(req, res, next) {
 });
 
 router.get('/', upload.single('image'), limitEndpoint, function(req, res, next) {
+  console.warn("sssssssss");
   processImage.amooNowroozMaker('./public/images/uploads/' +  'd26f08d255012f051582567086adc509' ,'./public/images/processed/' + 'd26f08d255012f051582567086adc509' + '.jpg');
   res.render('image', { imageUrl: '/images/processed/' + 'd26f08d255012f051582567086adc509' + '.jpg'});
 });
