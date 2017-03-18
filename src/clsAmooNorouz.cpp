@@ -31,10 +31,10 @@ cv::Mat clsAmooNorouz::getAmooNorouzImage(cv::Mat _input)
         out = this->putOverlayOnImage(out, beard);
         cv::Mat hat = getTransformedHat(fullObjects[k], out.size());
         out = this->putOverlayOnImage(out, hat);
-        cv::Mat logo = getTransformedLogo(out.size());
-        out = this->putOverlayOnImage(out, logo);
     }
 
+    cv::Mat logo = getTransformedLogo(out.size());
+    out = this->putOverlayOnImage(out, logo);
     return out;
 }
 
@@ -132,18 +132,19 @@ Mat clsAmooNorouz::getTransformedLogo(Size _imageSize)
     float samsungAspectRatio =  (float)samsungLogo.rows / (float)samsungLogo.cols  ;
     float galaxyAspectRatio =  (float)galaxyLogo.rows / (float)galaxyLogo.cols  ;
     int width = this->config.samsungLogoWidthPercent * _imageSize.width;
-
-    cv::resize(samsungLogo, samsungLogo, cv::Size(width, width * samsungAspectRatio));
-    cv::resize(galaxyLogo, galaxyLogo, cv::Size(width * 0.8, width * 0.8 * galaxyAspectRatio));
+	cv::Mat samsungLogo_local;
+    cv::resize(this->samsungLogo, samsungLogo_local, cv::Size(width, width * samsungAspectRatio));
+    cv::Mat galaxyLogo_local;
+	cv::resize(this->galaxyLogo, galaxyLogo_local, cv::Size(width * 0.8, width * 0.8 * galaxyAspectRatio));
 
     cv::Mat logo(_imageSize, CV_8UC4);
     logo.setTo(cv::Scalar::all(0));
-    this->samsungLogo.copyTo(logo(cv::Rect(this->config.samsungLogoPosition.x * _imageSize.width, this->config.samsungLogoPosition.y * _imageSize.height,
-                  this->samsungLogo.cols, this->samsungLogo.rows)));
-    int galaxy_x = logo.cols - this->config.samsungLogoPosition.x * _imageSize.width - this->galaxyLogo.cols;
+    samsungLogo_local.copyTo(logo(cv::Rect(this->config.samsungLogoPosition.x * _imageSize.width, this->config.samsungLogoPosition.y * _imageSize.height,
+                  samsungLogo_local.cols, samsungLogo_local.rows)));
+    int galaxy_x = logo.cols - this->config.samsungLogoPosition.x * _imageSize.width - galaxyLogo_local.cols;
     int galaxy_y = this->config.samsungLogoPosition.y * _imageSize.height;
-    this->galaxyLogo.copyTo(logo(cv::Rect(galaxy_x, galaxy_y,
-                  this->galaxyLogo.cols, this->galaxyLogo.rows)));
+    galaxyLogo_local.copyTo(logo(cv::Rect(galaxy_x, galaxy_y,
+                  galaxyLogo_local.cols, galaxyLogo_local.rows)));
     return logo;
 }
 

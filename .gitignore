@@ -31,5 +31,9 @@ npm-debug.log
 
 # dlib model
 build/model/shape_predictor_68_face_landmarks.dat
+build/*.o
+build/*.so*
+build/Makefile
 public/images/uploads
 public/images/processed
+
