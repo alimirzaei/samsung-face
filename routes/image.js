@@ -4,20 +4,32 @@ var fs = require('fs');
 
 router.get('/app/:id', function(req, res, next) {
   switch (Number(req.params.id)) {
-    case 1: // top left
-      res.render('image', { imageUrl: '/images/eCards/Sabzeh.gif' });
+    case 1:
+      res.render('image', { imageUrl: '/images/cards/1.gif' });
       break;
-    case 2: // top right
-      res.render('image', { imageUrl: '/images/eCards/Apple.gif' });
+    case 2:
+      res.render('image', { imageUrl: '/images/cards/2.gif' });
       break;
-    case 3: // bottom left
-      res.render('image', { imageUrl: '/images/eCards/Chat.gif' });
+    case 3:
+      res.render('image', { imageUrl: '/images/cards/3.gif' });
       break;
-    case 4: // bottom right
-      res.render('image', { imageUrl: '/images/eCards/Rooster.gif' });
+    case 4:
+      res.render('image', { imageUrl: '/images/cards/4.gif' });
       break;
-    case 5: // bottom right
-      res.render('image', { imageUrl: '/images/eCards/HaftSin.gif' });
+    case 5:
+      res.render('image', { imageUrl: '/images/cards/5.gif' });
+      break;
+    case 6:
+      res.render('image', { imageUrl: '/images/cards/6.gif' });
+      break;
+    case 7:
+      res.render('image', { imageUrl: '/images/cards/7.gif' });
+      break;
+    case 8:
+      res.render('image', { imageUrl: '/images/cards/8.gif' });
+      break;
+    case 9:
+      res.render('image', { imageUrl: '/images/cards/9.gif' });
       break;
     default:
       res.render('image', { });

@@ -107,19 +107,19 @@
     			</header>
     			<div class="w3-row">
     				<div class="w3-col l3 m3 s12 w3-padding">
-    					<img onclick="window.location.href='image/app/1'" style="width: 100%; cursor: pointer;" src="images/app/khros-01.jpg">
+    					<img onclick="window.location.href='image/app/1'" style="width: 100%; cursor: pointer;" src="images/cards/1.jpg">
     				</div>
     				<div class="w3-col l3 m3 s12 w3-padding">
-    					<img onclick="window.location.href='image/app/2'" style="width: 100%; cursor: pointer;" src="images/app/khros-02.jpg">
+    					<img onclick="window.location.href='image/app/2'" style="width: 100%; cursor: pointer;" src="images/cards/2.jpg">
     				</div>
     				<div class="w3-col l3 m3 s12 w3-padding">
-    					<img onclick="window.location.href='image/app/3'" style="width: 100%; cursor: pointer;" src="images/app/khros-03.jpg">
+    					<img onclick="window.location.href='image/app/3'" style="width: 100%; cursor: pointer;" src="images/cards/3.jpg">
     				</div>
     				<div class="w3-col l3 m3 s12 w3-padding">
-    					<img onclick="window.location.href='image/app/4'" style="width: 100%; cursor: pointer;" src="images/app/khros-04.jpg">
+    					<img onclick="window.location.href='image/app/4'" style="width: 100%; cursor: pointer;" src="images/cards/4.jpg">
     				</div>
             <div class="w3-col l3 m3 s12 w3-padding">
-      				<img onclick="window.location.href='image/app/5'" style="width: 100%; cursor: pointer;" src="images/app/khros-05.png">
+      				<img onclick="window.location.href='image/app/5'" style="width: 100%; cursor: pointer;" src="images/cards/5.png">
       			</div>
     			</div>
     		</section>
@@ -136,19 +136,16 @@
     		</header>
     		<div class="w3-row">
     			<div class="w3-col l3 m3 s12 w3-padding">
-    				<img onclick="window.location.href='image/app/1'" style="width: 100%; cursor: pointer;" src="images/app/khros-01.jpg">
+    				<img onclick="window.location.href='image/app/6'" style="width: 100%; cursor: pointer;" src="images/cards/6.png">
     			</div>
     			<div class="w3-col l3 m3 s12 w3-padding">
-    				<img onclick="window.location.href='image/app/2'" style="width: 100%; cursor: pointer;" src="images/app/khros-02.jpg">
+    				<img onclick="window.location.href='image/app/7'" style="width: 100%; cursor: pointer;" src="images/cards/7.png">
     			</div>
     			<div class="w3-col l3 m3 s12 w3-padding">
-    				<img onclick="window.location.href='image/app/3'" style="width: 100%; cursor: pointer;" src="images/app/khros-03.jpg">
+    				<img onclick="window.location.href='image/app/8'" style="width: 100%; cursor: pointer;" src="images/cards/8.png">
     			</div>
     			<div class="w3-col l3 m3 s12 w3-padding">
-    				<img onclick="window.location.href='image/app/4'" style="width: 100%; cursor: pointer;" src="images/app/khros-04.jpg">
-    			</div>
-          <div class="w3-col l3 m3 s12 w3-padding">
-    				<img onclick="window.location.href='image/app/5'" style="width: 100%; cursor: pointer;" src="images/app/khros-05.png">
+    				<img onclick="window.location.href='image/app/9'" style="width: 100%; cursor: pointer;" src="images/cards/9.png">
     			</div>
     		</div>
         <div class="w3-padding">

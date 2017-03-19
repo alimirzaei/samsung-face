@@ -7,7 +7,7 @@
     <meta property="og:site_name" content="Samsung96.com" />
     <meta property="og:title" content="سال ۱۳۹۶ مبارک!" />
     <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و به کسانی که دوسشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
-    <meta property="og:image" content="http://samsung96.com/images/app/amoonorooz.jpg" />
+    <meta property="og:image" content="http://samsung96.com/images/app/amoonorooz.png" />
 
     <!-- Google Analytics -->
     <script>
@@ -84,9 +84,8 @@
                     <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 40%;float: right" src="/images/app/share.png"></span>
                 </div>
 
-
                 <p style="text-align: center; direction: rtl; font-size: 12px;">
-                  اگه عکستون تار باشه یا صورتتون مشخص نباشه ممکنه عمو نوروز نشید. اگه کارت تبریک خوبی نگرفتید می تونید برگردید و دوباره امتحان کنید .
+                  اگه صورتتون تو عکس تار باشه یا از فاصله ی زیاد باشه ممکنه نتونین عمونوروز بشین! ولی اگه بخواین می تونین برگردین و دوباره و دوباره امتحان کنین تا بالاخره عمونوروزی بشین که دوست دارین.
                 </p>
 
             </section>
