@@ -166,13 +166,19 @@
           </div>
     		</section>
     		<section>
-    			<h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
-          <div style="width: 60%; margin: auto;">
+          <div style="width: 30%; margin-left: auto;">
             <img onclick="window.location.href='#'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
           </div>
     		</section>
+        
+        <p style="text-align: right; direction: rtl !important;" class="copyright">
+          <a href="http://samsung.com/iran/info/privacy/">حریم شخصی کاربران</a>
+          <br>
+          <a href="http://samsung.com/iran/info/legal/">ملاحظات قانونی</a>
+          <br>
+          © 1995-2017 سامسونگ. کلیه حقوق محفوظ است.
+        </p>
 
-    		<p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
     	</footer>
 
     </div>
