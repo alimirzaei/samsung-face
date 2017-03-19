@@ -116,7 +116,7 @@
             imageId = imageId[imageId.length - 1].split(".");
             imageId = imageId[0];
             var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId +
-            "&text=سال نو مبارک!\nاین عیدی من به توست. تو هم می تونی روی لینک بالا کلیک کنی و برای کسانی که دوستشون داری هدیه بفرستی.";
+            "&text=سال نو مبارک!%0Aاین عیدی من به توست. تو هم می تونی روی لینک بالا کلیک کنی و برای کسانی که دوستشون داری هدیه بفرستی.";
 
             link.href = telegramLink;
             link.click();
