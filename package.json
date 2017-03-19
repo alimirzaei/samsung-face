@@ -9,6 +9,7 @@
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
+    "exif-js": "^2.1.1",
     "express": "~4.14.1",
     "ffi": "^2.2.0",
     "hjs": "~0.0.6",

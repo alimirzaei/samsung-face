@@ -36,6 +36,9 @@
     <!-- 3rd party libraries -->
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+    <!-- exif js for getting image input meta data -->
+    <script src="/javascripts/exif.js"></script>
+
 
   </head>
 
@@ -218,28 +221,80 @@
                         height = MAX_HEIGHT;
                     }
                 }
-                canvas.width = width;
-                canvas.height = height;
-                var ctx = canvas.getContext("2d");
-                ctx.drawImage(img, 0, 0, width, height);
+                img.style.width = width + 'px';
+                img.style.height = height + 'px';
+                EXIF.getData(img, function() {
+                  var ctx = canvas.getContext("2d");
+                  canvas.width = img.width;
+                  canvas.height = img.height;
+                  ctx.save();
 
-                canvas.toBlob(function(blob) {
-                    var fd = new FormData();
-                    fd.append("image", blob);
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "process");
-                    xhr.onreadystatechange = function() { //Call a function when the state changes.
-                        if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-                            window.location.href = 'process/' + JSON.parse(xhr.response).id;
-                        }
+                  var width  = canvas.width;  var styleWidth  = canvas.style.width;
+                  var height = canvas.height; var styleHeight = canvas.style.height;
+                  // ctx.drawImage(img, 0, 0, width, height);
+
+                    var allMetaData = EXIF.getAllTags(this);
+                    if (allMetaData.Orientation > 4) {
+                      canvas.width  = height; canvas.style.width  = styleHeight;
+                      canvas.height = width;  canvas.style.height = styleWidth;
                     }
-                    xhr.send(fd);
-                    $('body').delay(350).css({
-                        'overflow': 'hidden'
-                    });
-                    $('#preloader').delay(350).fadeIn('slow');
-                    $('#status').fadeIn();
-                }, "image/jpeg");
+                    // alert(JSON.stringify(allMetaData, null, "\t"));
+                    // alert(allMetaData.Orientation);
+                    switch(allMetaData.Orientation){
+                      case 2:
+                          // horizontal flip
+                          ctx.translate(width, 0);
+                          ctx.scale(-1, 1);
+                          break;
+                      case 3:
+                          // 180° rotate left
+                          ctx.translate(width, height);
+                          ctx.rotate(Math.PI);
+                          break;
+                      case 4:
+                          // vertical flip
+                          ctx.translate(0, height);
+                          ctx.scale(1, -1);
+                          break;
+                      case 5:
+                          // vertical flip + 90 rotate right
+                          ctx.rotate(0.5 * Math.PI);
+                          ctx.scale(1, -1);
+                          break;
+                      case 6:
+                          // horizontal flip + 90 rotate right
+                          ctx.rotate(0.5 * Math.PI);
+                          ctx.translate(width, -height);
+                          ctx.scale(-1, 1);
+                          break;
+                      case 8:
+                          // 90° rotate left
+                          ctx.rotate(-0.5 * Math.PI);
+                          ctx.translate(-width, 0);
+                          break;
+                  }
+                  // console.log(img.width, "ss", img.height);
+                  ctx.drawImage(img, 0, 0, img.width, img.height);
+                  canvas.toBlob(function(blob) {
+                      var fd = new FormData();
+                      fd.append("image", blob);
+                      var xhr = new XMLHttpRequest();
+                      xhr.open("POST", "process");
+                      xhr.onreadystatechange = function() { //Call a function when the state changes.
+                          if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                              window.location.href = 'process/' + JSON.parse(xhr.response).id;
+                          }
+                      }
+                      xhr.send(fd);
+                      $('body').delay(350).css({
+                          'overflow': 'hidden'
+                      });
+                      $('#preloader').delay(350).fadeIn('slow');
+                      $('#status').fadeIn();
+                  }, "image/jpeg");
+                });
+
+
             }, false);
 
             if (file) {
@@ -247,6 +302,21 @@
             }
         });
     </script>
+
+    <script type="text/javascript">
+      // window.onload=getExif;
+      //
+      // function getExif() {
+      //
+      //   var img2 = document.getElementById("img2");
+      //   EXIF.getData(img2, function() {
+      //       var allMetaData = EXIF.getAllTags(this);
+      //       var allMetaDataSpan = document.getElementById("allMetaDataSpan");
+      //       allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
+      //   });
+      // }
+    </script>
+
 </body>
 
 </html>
