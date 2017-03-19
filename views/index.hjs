@@ -93,7 +93,7 @@
     						<a onclick="$('#file-input').click();" id="be-amoo" style="background: #00b359;width: 100%;padding-top: 3px;padding-bottom: 5px !important;color: white !important;font-size: 20px;vertical-align: bottom;float: right;" class="button"><i style="color: white;font-size: 41px !important;padding-top: 5px;float: left;" class="fa fa-camera" aria-hidden="true"></i> عمو نوروز شو! </a>					</div>
 
     				</div>
-    				<span class="image"><img src="images/app/amoonorooz.jpg" alt="" /></span>
+    				<span class="image"><img src="images/app/amoonorooz.png" alt="" /></span>
     			</div>
     		</section>
 
@@ -146,21 +146,25 @@
     				<img onclick="window.location.href='image/app/4'" style="width: 100%; cursor: pointer;" src="images/app/khros-04.jpg">
     			</div>
     		</div>
+        <div class="w3-padding">
+          <h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
+          <p style="text-align: right; direction: rtl;">
+            روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
+          </p>
+        </div>
     	</section>
 
 
     	<!-- Footer -->
     	<footer id="footer" style="color: #5F5F5F !important;">
     		<section>
-    			<h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
-    			<p style="text-align: right; direction: rtl;">
-    				روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
-    			</p>
-    			<p style="text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
-    			<ul class="actions">
-    				<li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
-    				<li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
-    			</ul>
+          <div class="w3-black w3-padding">
+            <p style="color: #c3bdbd;text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
+            <ul class="actions">
+              <li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
+              <li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
+            </ul>
+          </div>
     		</section>
     		<section>
     			<h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
