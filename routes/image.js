@@ -5,16 +5,16 @@ var fs = require('fs');
 router.get('/app/:id', function(req, res, next) {
   switch (Number(req.params.id)) {
     case 1: // top left
-      res.render('image', { imageUrl: '/images/app/khros-01.jpg' });
+      res.render('image', { imageUrl: '/images/eCards/Sabzeh.gif' });
       break;
     case 2: // top right
-      res.render('image', { imageUrl: '/images/app/khros-02.jpg' });
+      res.render('image', { imageUrl: '/images/eCards/Apple.gif' });
       break;
     case 3: // bottom left
-      res.render('image', { imageUrl: '/images/app/khros-03.jpg' });
+      res.render('image', { imageUrl: '/images/eCards/Chat.gif' });
       break;
     case 4: // bottom right
-      res.render('image', { imageUrl: '/images/app/khros-04.jpg' });
+      res.render('image', { imageUrl: '/images/eCards/Rooster.gif' });
       break;
     default:
       res.render('image', { });
