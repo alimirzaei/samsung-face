@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:site_name" content="Samsung96.com" />
-    <meta property="og:title" content="نوروز 1396 مبارک" />
-    <meta property="og:description" content="بیا تو این وبسایت و هدیه خودت رو از سامسونگ بگیر. روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده." />
+    <meta property="og:title" content="سال ۱۳۹۶ مبارک!" />
+    <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و به کسانی که دوسشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
     <meta property="og:image" content="http://samsung96.com/images/app/amoonorooz.jpg" />
     <!-- Google Analytics -->
     <script>
@@ -100,8 +100,8 @@
     		<section id="second" class="main special">
     			<header class="major">
     				<h2 style="direction: rtl;">برای کسایی که دوسشون دارید کارت تبریک بفرستین!</h2>
-    				<p style="direction: rtl;">خیلی ساده می تونین با انتخاب یکی از کارت تبریک های اون ها رو دانلود کنید یا مستقیم توی تلگرام برای کسایی که دوستشون دارین بفرستین.
-
+    				<p style="direction: rtl;">
+              خیلی ساده می تونین با انتخاب یکی از کارت های تبریک اون رو دانلود کنید یا مستقیم توی تلگرام برای کسانی که دوسشون دارین بفرستین.
     				</p>
     			</header>
     			<div class="w3-row">

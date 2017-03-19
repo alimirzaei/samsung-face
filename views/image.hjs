@@ -4,6 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:site_name" content="Samsung96.com" />
+    <meta property="og:title" content="سال ۱۳۹۶ مبارک!" />
+    <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و به کسانی که دوسشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
+    <meta property="og:image" content="http://samsung96.com/images/app/amoonorooz.jpg" />
 
     <!-- Google Analytics -->
     <script>
@@ -111,7 +115,8 @@
             var imageId = imageSrc.split("/");
             imageId = imageId[imageId.length - 1].split(".");
             imageId = imageId[0];
-            var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId;
+            var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId +
+            "&text=سال نو مبارک!\nاین عیدی من به توست. تو هم می تونی روی لینک بالا کلیک کنی و برای کسانی که دوستشون داری هدیه بفرستی.";
 
             link.href = telegramLink;
             link.click();

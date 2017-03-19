@@ -16,10 +16,9 @@
     <!-- End Google Analytics -->
 
     <title></title>
-    <meta property="og:title" content="happy new year!" />
-    <meta property="og:site_name" content="www.samsung96.com"/>
-    <meta property="og:description" content="با یه عکس عمونوروزی از خودتون سال نو رو به بقیه تبریک بگین!
-روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وب سایت هست دیدن کنی." />
+    <meta property="og:title" content="سال نو مبارک!" />
+    <meta property="og:site_name" content="Samsung96.com"/>
+    <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و کسانی که دوستشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
     <meta property="og:image" content="/images/processed/{{ imageId }}.png" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
