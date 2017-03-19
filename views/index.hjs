@@ -90,7 +90,7 @@
     						<h2 style="direction: rtl;">عمو نوروز شو و تبریک بگو!</h2>
     					</header>
     					<p style="direction: rtl;">با یه عکس عمو نوروزی از خودتون سال نو رو به بقیه تبریک بگین!</p>
-    					<p style="direction: rtl;">روی لینک کلیک کن و عمو نوروز شو! و می تونی از کارت های تبریک دیگه ای هم که توی وبسایت هست استفاده کنی.</p>
+    					<p style="direction: rtl;">روی دکمه "عمونوروزشو" کلیک کنین و به کسایی که دوسشون دارین تبریک بگین! و همچنین می تونین از کارت تبریک های زیبایی که براتون آماده کردیم استفاده کنین.</p>
 
     					<div style="display: inline; direction: rtl; margin-top: 5px;">
     						<a onclick="$('#file-input').click();" id="be-amoo" style="background: #00b359;width: 100%;padding-top: 3px;padding-bottom: 5px !important;color: white !important;font-size: 20px;vertical-align: bottom;float: right;" class="button"><i style="color: white;font-size: 41px !important;padding-top: 5px;float: left;" class="fa fa-camera" aria-hidden="true"></i> عمو نوروز شو! </a>					</div>
@@ -134,8 +134,8 @@
         color: #636363;
         border-radius: 0.25em; padding-top: 10px; padding: 10px;">
     		<header class="major">
-    			<h2 style="direction: rtl; color: black">سال نو شاد. دوستدارت. موبایل سامسونگ!</h2>
-    			<p style="direction: rtl;"> در انتها هم چند تا مطلب آموزنده هم برای بهتر استفاده کردن از گوشی هامون درست کردیم تا با دوستاتون به اشتراک بگدارین.</p>
+    			<h2 style="direction: rtl; color: black">مطالب آموزنده استفاده بهتر از گوشی</h2>
+    			<p style="direction: rtl;">اینجا هم چند تا مطلب آموزنده برای بهتر استفاده کردن از گوشی هامون درست کردیم تا با دوستاتون به اشتراک بگذارین</p>
     		</header>
     		<div class="w3-row">
     			<div class="w3-col l3 m3 s12 w3-padding">
@@ -164,16 +164,16 @@
     	<footer id="footer" style="color: #5F5F5F !important;">
     		<section>
           <div class="w3-black w3-padding">
-            <p style="color: #c3bdbd;text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
+            <p style="color: #c3bdbd;text-align: right; direction: rtl;">آیا منتظر عضو جدید خانواده Galaxy هستید؟</p>
             <ul class="actions">
               <li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
-              <li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
+              <li><a style="color: white; background: #0949a0;" href="http://samsung.com/iran" class="button">از همه زودتر خبردار شوید</a></li>
             </ul>
           </div>
     		</section>
     		<section>
           <div style="width: 30%; margin-left: auto;">
-            <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
+            <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 100%; cursor: pointer;" src="/images/app/svg-gb-instagram.svg">
           </div>
     		</section>
 
@@ -301,20 +301,6 @@
                 reader.readAsDataURL(file);
             }
         });
-    </script>
-
-    <script type="text/javascript">
-      // window.onload=getExif;
-      //
-      // function getExif() {
-      //
-      //   var img2 = document.getElementById("img2");
-      //   EXIF.getData(img2, function() {
-      //       var allMetaData = EXIF.getAllTags(this);
-      //       var allMetaDataSpan = document.getElementById("allMetaDataSpan");
-      //       allMetaDataSpan.innerHTML = JSON.stringify(allMetaData, null, "\t");
-      //   });
-      // }
     </script>
 
 </body>

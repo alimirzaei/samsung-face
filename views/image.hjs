@@ -60,7 +60,7 @@
         <!-- Header -->
         <header id="header">
             <h1 style="color: grey; text-align: center; direction: rtl;">کارت تبریکت آماده شد.</h1>
-            <p style="color: grey; text-align: center; direction: rtl;">می تونی کارت تبریکت رو برای کسایی که دوست داری تو تلگرام بفرستی یا دانلود کنی. اگه کارت تبریکت رو دوست نداشتی می تونی دوباره برگردی و امتحان کنی.</p>
+            <p style="color: grey; text-align: center; direction: rtl;">{{ pageTopMessage }}</p>
         </header>
 
         <!-- Main -->
@@ -70,17 +70,17 @@
             <section id="content" class="main">
 
                 <div class="w3-center">
-                  <span style=""><img onclick="window.location.href='http://www.samsung96.com'" style="cursor: pointer; width: 30%;" src="/images/app/gotofirstpage.png"></span>
+                  <button class="w3-round w3-hover w3-hover-khaki" onclick="window.location.href='http://www.samsung96.com'" type="button" name="button">{{ retry }}</button>
                 </div>
                 <br>
                 <img id="image" style="width: 100%;" src="{{ imageUrl }}">
                 <div style="margin: 0 auto; padding: 10%;">
                     <span style=""><img onclick="downloadImage('{{ imageUrl }}')"  style="cursor: pointer; width: 40%;" src="/images/app/download.png"></span>
-                    <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 40%;float: right" src="/images/app/share.png"></span>
+                    <span style=""><img onclick="shareTelegramLink('{{ telegramMessage }}')" style="cursor: pointer; width: 40%;float: right" src="/images/app/share.png"></span>
                 </div>
 
                 <p style="text-align: center; direction: rtl; font-size: 12px;">
-                  اگه صورتتون تو عکس تار باشه یا از فاصله ی زیاد باشه ممکنه نتونین عمونوروز بشین! ولی اگه بخواین می تونین برگردین و دوباره و دوباره امتحان کنین تا بالاخره عمونوروزی بشین که دوست دارین.
+                  {{ message }}
                 </p>
 
             </section>
@@ -94,16 +94,17 @@
       				روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
       			</p>
             <div class="w3-black w3-padding">
-              <p style="text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
+              <p style="color: #c3bdbd;text-align: right; direction: rtl;">آیا منتظر عضو جدید خانواده Galaxy هستید؟</p>
               <ul class="actions">
                 <li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
-                <li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
+                <li><a style="color: white; background: #0949a0;" href="http://samsung.com/iran" class="button">از همه زودتر خبردار شوید</a></li>
               </ul>
             </div>
       		</section>
       		<section>
-            <div style="width: 30%; margin-left: auto;">
-              <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
+            <p class="w3-large" style="text-align: right; direction: rtl; color: #363636;">کانال رسمی ما را دنبال کنید</p>
+            <div  style="width: 30%; margin-left: auto;">
+              <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 60%; cursor: pointer;" src="/images/app/svg-gb-instagram.svg">
             </div>
       		</section>
           <p style="text-align: right; direction: rtl !important;" class="copyright">
@@ -118,7 +119,7 @@
     </div>
 
     <script type="text/javascript">
-        function shareTelegramLink() {
+        function shareTelegramLink(message) {
             var link = document.createElement('a');
             // TODO: change http://kingofwallpapers.com/image/image-025.jpg to view.$image.attr("src")
             var imageSrc = $("#image").attr("src");
@@ -126,7 +127,7 @@
             imageId = imageId[imageId.length - 1].split(".");
             imageId = imageId[0];
             var telegramLink = "https://telegram.me/share/url?url=http://samsung96.com/image/download/" + imageId +
-            "&text=سال نو مبارک!%0Aاین عیدی من به توست. تو هم می تونی روی لینک بالا کلیک کنی و برای کسانی که دوستشون داری هدیه بفرستی.";
+            "&text=سال نو مبارک!%0A" + message;
 
             link.href = telegramLink;
             link.click();
