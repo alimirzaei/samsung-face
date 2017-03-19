@@ -7,7 +7,7 @@
     <meta property="og:site_name" content="Samsung96.com" />
     <meta property="og:title" content="سال ۱۳۹۶ مبارک!" />
     <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و به کسانی که دوسشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
-    <meta property="og:image" content="http://samsung96.com/images/app/amoonorooz.jpg" />
+    <meta property="og:image" content="http://samsung96.com/images/app/amoonorooz.png" />
     <!-- Google Analytics -->
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -27,7 +27,7 @@
     </script>
     <!-- End Google Analytics -->
 
-    <title>عمو نوروز شو!</title>
+    <title>سال 1396 مبارک | سامسونگ موبایل ایران</title>
 
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
