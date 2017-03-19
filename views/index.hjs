@@ -170,7 +170,7 @@
     		</section>
     		<section>
           <div style="width: 30%; margin-left: auto;">
-            <img onclick="window.location.href='#'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
+            <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
           </div>
     		</section>
 
