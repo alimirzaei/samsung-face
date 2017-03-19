@@ -118,6 +118,9 @@
     				<div class="w3-col l3 m3 s12 w3-padding">
     					<img onclick="window.location.href='image/app/4'" style="width: 100%; cursor: pointer;" src="images/app/khros-04.jpg">
     				</div>
+            <div class="w3-col l3 m3 s12 w3-padding">
+      				<img onclick="window.location.href='image/app/5'" style="width: 100%; cursor: pointer;" src="images/app/khros-05.png">
+      			</div>
     			</div>
     		</section>
 
@@ -143,6 +146,9 @@
     			</div>
     			<div class="w3-col l3 m3 s12 w3-padding">
     				<img onclick="window.location.href='image/app/4'" style="width: 100%; cursor: pointer;" src="images/app/khros-04.jpg">
+    			</div>
+          <div class="w3-col l3 m3 s12 w3-padding">
+    				<img onclick="window.location.href='image/app/5'" style="width: 100%; cursor: pointer;" src="images/app/khros-05.png">
     			</div>
     		</div>
         <div class="w3-padding">
@@ -170,7 +176,7 @@
             <img onclick="window.location.href='#'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
           </div>
     		</section>
-        
+
         <p style="text-align: right; direction: rtl !important;" class="copyright">
           <a href="http://samsung.com/iran/info/privacy/">حریم شخصی کاربران</a>
           <br>

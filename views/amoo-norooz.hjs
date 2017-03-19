@@ -19,25 +19,40 @@
     <meta property="og:title" content="سال نو مبارک!" />
     <meta property="og:site_name" content="Samsung96.com"/>
     <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و کسانی که دوستشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
-    <meta property="og:image" content="/images/processed/{{ imageId }}.png" />
+    <meta property="og:image" content="/images/{{ imageFolder }}/{{ imageId }}.{{ imageType }}" />
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
+    <!-- 3rd party libraries -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   </head>
 
   <body>
 
-    <div class="w3-center">
-      <div style="width: 90%; margin: auto;">
-        <img style="width: 100%;" src="/images/processed/{{ imageId }}.png" alt="">
-      </div>
-      <br>
-      <div style="width: 80%; margin: auto;">
-        <a href="www.samsung96.com">
-          <img style="width: 60%; " src="/images/app/be-amoo-button.png">
-        </a>
-      </div>
-    </div>
+    <section class="w3-section">
+
+        <div class="w3-center">
+          <img id="image" style="width: 80%;" src="/images/{{ imageFolder }}/{{ imageId }}.{{ imageType }}">
+        </div>
+        <div style="margin: 0 auto; padding: 10%;">
+            <span style=""><img onclick="downloadImage('/images/{{ imageFolder }}/{{ imageId }}.{{ imageType }}')"  style="cursor: pointer; width: 40%;" src="/images/app/download.png"></span>
+            <span style=""><img onclick="window.location.href='http://www.samsung96.com'" style="cursor: pointer; width: 40%;float: right" src="/images/app/tohamamoonoroozsho.png"></span>
+        </div>
+        <br>
+    </section>
+
+    <script type="text/javascript">
+      function downloadImage(imageUrl) {
+          var fileType = imageUrl.split(".");
+          fileType = fileType[fileType.length - 1];
+          var link = document.createElement('a');
+          link.href = $("#image").attr("src");
+          // TODO: specify a good name for each card in link.download
+          link.download = "download." + fileType;
+          link.click();
+          link.remove();
+      }
+    </script>
 
   </body>
 </html>

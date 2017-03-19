@@ -74,7 +74,7 @@
                 <br>
                 <img id="image" style="width: 100%;" src="{{ imageUrl }}">
                 <div style="margin: 0 auto; padding: 10%;">
-                    <span style=""><img onclick="downloadImage()"  style="cursor: pointer; width: 40%;" src="/images/app/download.png"></span>
+                    <span style=""><img onclick="downloadImage('{{ imageUrl }}')"  style="cursor: pointer; width: 40%;" src="/images/app/download.png"></span>
                     <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 40%;float: right" src="/images/app/share.png"></span>
                 </div>
                 <br>
@@ -128,11 +128,13 @@
             link.remove();
         };
 
-        function downloadImage() {
+        function downloadImage(imageUrl) {
+            var fileType = imageUrl.split(".");
+            fileType = fileType[fileType.length - 1];
             var link = document.createElement('a');
             link.href = $("#image").attr("src");
             // TODO: specify a good name for each card in link.download
-            link.download = "download.jpg";
+            link.download = "download." + fileType;
             link.click();
             link.remove();
             // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");

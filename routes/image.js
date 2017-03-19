@@ -16,6 +16,9 @@ router.get('/app/:id', function(req, res, next) {
     case 4: // bottom right
       res.render('image', { imageUrl: '/images/eCards/Rooster.gif' });
       break;
+    case 5: // bottom right
+      res.render('image', { imageUrl: '/images/eCards/HaftSin.gif' });
+      break;
     default:
       res.render('image', { });
   }
@@ -23,7 +26,11 @@ router.get('/app/:id', function(req, res, next) {
 
 
 router.get('/download/:id', function(req, res, next) {
-    res.render('amoo-norooz', { imageId: req.params.id });
+   if (req.params.id.length > 15) {
+     res.render('amoo-norooz', { imageId: req.params.id , imageFolder: 'processed', imageType: 'jpg'});
+   } else {
+     res.render('amoo-norooz', { imageId: req.params.id, imageFolder: 'eCards', imageType: 'gif'});
+   }
 });
 
 module.exports = router;
