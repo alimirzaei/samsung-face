@@ -41,7 +41,7 @@ router.get('/download/:id', function(req, res, next) {
    if (req.params.id.length > 15) {
      res.render('amoo-norooz', { imageId: req.params.id , imageFolder: 'processed', imageType: 'jpg'});
    } else {
-     res.render('amoo-norooz', { imageId: req.params.id, imageFolder: 'eCards', imageType: 'gif'});
+     res.render('amoo-norooz', { imageId: req.params.id, imageFolder: 'cards', imageType: 'gif'});
    }
 });
 
