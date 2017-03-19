@@ -74,8 +74,8 @@
                 <br>
                 <img id="image" style="width: 100%;" src="{{ imageUrl }}">
                 <div style="margin: 0 auto; padding: 10%;">
-                    <span style=""><img onclick="downloadImage()"  style="cursor: pointer; width: 20%;" src="/images/app/download.png"></span>
-                    <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 20%;float: right" src="/images/app/share.png"></span>
+                    <span style=""><img onclick="downloadImage()"  style="cursor: pointer; width: 40%;" src="/images/app/download.png"></span>
+                    <span style=""><img onclick="shareTelegramLink()" style="cursor: pointer; width: 40%;float: right" src="/images/app/share.png"></span>
                 </div>
                 <br>
             </section>
@@ -88,19 +88,19 @@
       			<p style="text-align: right; direction: rtl;">
       				روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
       			</p>
-      			<p style="text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
-      			<ul class="actions">
-      				<li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
-      				<li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
-      			</ul>
+            <div class="w3-black w3-padding">
+              <p style="text-align: right; direction: rtl;">راستی منتظر عضو جدید خانواده Galaxy هستیم</p>
+              <ul class="actions">
+                <li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
+                <li><a style="color: black; background: #e6dbda;color: black !important;" href="http://samsung.com/iran" class="button">پیش ثبت نام محصول جدید سامسونگ</a></li>
+              </ul>
+            </div>
       		</section>
       		<section>
-      			<h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
-
-      			<ul class="icons" style="direction: rtl; text-align: right;">
-      				<li><a href="#" style="border: 1px solid white; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 7px;" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-      				<li><a style="border: 1px solid white; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 7px;" href="https://www.instagram.com/samsungmobileir" class="icon fa-instagram "><span class="label">Instagram</span></a></li>
-      			</ul>
+            <h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
+            <div style="width: 60%; margin: auto;">
+              <img onclick="window.location.href='#'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
+            </div>
       		</section>
       		<p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
       	</footer>

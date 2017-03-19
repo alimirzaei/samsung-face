@@ -29,12 +29,12 @@
 
     <title>عمو نوروز شو!</title>
 
-    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link rel="stylesheet" href="/stylesheets/preloader.css">
 
     <!-- 3rd party libraries -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 
   </head>
@@ -167,12 +167,11 @@
     		</section>
     		<section>
     			<h2 style="text-align: right; direction: rtl; ">همراه سامسونگ باشید</h2>
-
-    			<ul class="icons" style="direction: rtl; text-align: right;">
-    				<li><a href="#" style="border: 1px solid white; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 7px;" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-    				<li><a style="border: 1px solid white; padding: 10px; padding-right: 20px; padding-left: 20px; border-radius: 7px;" href="https://www.instagram.com/samsungmobileir" class="icon fa-instagram "><span class="label">Instagram</span></a></li>
-    			</ul>
+          <div style="width: 60%; margin: auto;">
+            <img onclick="window.location.href='#'" style="width: 100%; cursor: pointer;" src="/images/app/instagram.png">
+          </div>
     		</section>
+
     		<p style="text-align: right; direction: rtl !important;" class="copyright">© 1995-2017 سامسونگ. کلیه حقوق محفوظ است.</p>
     	</footer>
 
