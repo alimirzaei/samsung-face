@@ -21,6 +21,17 @@
     <meta property="og:description" content="این عیدی سامسونگ موبایله به شما و کسانی که دوستشون دارین: از خودتون عکس بگیرین و یه کارت تبریک ویژه با عکستون بسازین." />
     <meta property="og:image" content="/images/{{ imageFolder }}/{{ imageId }}.{{ imageType }}" />
 
+    <style media="screen">
+        @font-face {
+            font-family: 'SamsungOneArabic';
+            src: url(../fonts/SamsungOneArabic-400.eot);
+            src: url(../fonts/SamsungOneArabic-400.eot?#iefix) format("embedded-opentype"), url(../fonts/SamsungOneArabic-400.woff2) format("woff2"), url(../fonts/SamsungOneArabic-400.woff) format("woff"), url(../fonts/SamsungOneArabic-400.ttf) format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+
+
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
 
     <!-- 3rd party libraries -->
@@ -30,6 +41,10 @@
   <body>
 
     <section class="w3-section">
+        <div style="font-family: SamsungOneArabic; text-align: right; direction: rtl;" class="w3-center">
+          <p style="font-family: SamsungOneArabic; ">سال نو شاد!</p>
+          <p>من و سامسونگ موبایل سال خوبی برات آرزو می کنیم.</p>
+        </div>
 
         <div class="w3-center">
           <img id="image" style="width: 80%;" src="/images/{{ imageFolder }}/{{ imageId }}.{{ imageType }}">

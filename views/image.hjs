@@ -70,7 +70,8 @@
             <section id="content" class="main">
 
                 <div class="w3-center">
-                  <button class="w3-round w3-hover w3-hover-khaki" onclick="window.location.href='http://www.samsung96.com'" type="button" name="button">{{ retry }}</button>
+                  <span style=""><img onclick="window.location.href='http://www.samsung96.com'"  style="cursor: pointer; width: 30%;" src="/images/app/{{retry}}"></span>
+                  <!-- <button class="w3-round w3-hover w3-hover-khaki" onclick="window.location.href='http://www.samsung96.com'" type="button" name="button">{{ retry }}</button> -->
                 </div>
                 <br>
                 <img id="image" style="width: 100%;" src="{{ imageUrl }}">
