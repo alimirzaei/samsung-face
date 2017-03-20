@@ -88,7 +88,7 @@
         </div>
 
         <!-- Footer -->
-      	<footer id="footer" style="color: #5F5F5F !important;">
+      	<!-- <footer id="footer" style="color: #5F5F5F !important;">
       		<section>
       			<h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
       			<p style="text-align: right; direction: rtl;">
@@ -115,9 +115,34 @@
             <br>
             © 1995-2017 سامسونگ. کلیه حقوق محفوظ است.
           </p>
-      	</footer>
+      	</footer> -->
 
     </div>
+    <footer id="footer" style="color: #5F5F5F !important;margin:0px; padding:0px;">
+        <section>
+            <div class="w3-black w3-padding">
+                <p style="color: #c3bdbd;text-align: right; direction: rtl;">آیا منتظر عضو جدید خانواده Galaxy هستید؟</p>
+                <ul class="actions">
+                    <li><div id="14898488376952887"><style>.h_iframe-aparat_embed_frame{position:relative;} .h_iframe-aparat_embed_frame .ratio {display:block;width:100%;height:auto;} .h_iframe-aparat_embed_frame iframe {position:absolute;top:0;left:0;width:100%; height:100%;}</style><div class="h_iframe-aparat_embed_frame"> <span style="display: block;padding-top: 56.2%"></span><iframe width="100%" height="100%" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" src="https://www.aparat.com/video/video/embed/videohash/7dutZ/vt/frame"></iframe></div></div></li>
+                    <li><a target="_blank" style="color: white; background: #0949a0;" target="_blank" href="http://www.samsung.com/iran/unpacked2017/?cid=iran_cta_samsung96_footer_170321" class="button">از همه زودتر خبردار شوید</a></li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <div style="width: 15%; margin-left: auto;">
+                <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 100%; cursor: pointer;" src="/images/app/svg-gb-instagram.svg">
+            </div>
+        </section>
+
+        <p style="text-align: right;direction: rtl !important;color: white;background: #363636;margin: 0px;" class="copyright">
+            <a target="_blank" href="http://samsung.com/iran/info/privacy/">حریم شخصی کاربران</a>
+            <br>
+            <a target="_blank" href="http://samsung.com/iran/info/legal/">ملاحظات قانونی</a>
+            <br>
+            © 1995-2017 سامسونگ. کلیه حقوق محفوظ است.
+        </p>
+
+    </footer>
 
     <script type="text/javascript">
         function shareTelegramLink(message) {
