@@ -42,8 +42,8 @@
 
     <section class="w3-section">
         <div style="font-family: SamsungOneArabic; text-align: right; direction: rtl;" class="w3-center">
-          <p style="font-family: SamsungOneArabic; ">سال نو شاد!</p>
-          <p>من و سامسونگ موبایل سال خوبی برات آرزو می کنیم.</p>
+          <p style="font-size: 23px; font-family: SamsungOneArabic; ">سال نو شاد!</p>
+          <p style="font-size: 23px;">من و سامسونگ موبایل سال خوبی برات آرزو می کنیم.</p>
         </div>
 
         <div class="w3-center">

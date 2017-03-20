@@ -215,7 +215,7 @@
 
     </footer>
 
-    <form action="process" method="post" enctype="multipart/form-data">
+    <form id="file-form" action="process" method="post" enctype="multipart/form-data">
     	<input style="display: none;" id="file-input" type="file" accept="image/*" value="" name="image">
     </form>
     <img style="display: none;" id="tmp-image" src="" alt="">
@@ -312,6 +312,7 @@
                           }
                       }
                       xhr.send(fd);
+
                       $('body').delay(350).css({
                           'overflow': 'hidden'
                       });

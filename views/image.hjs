@@ -59,7 +59,6 @@
 
         <!-- Header -->
         <header id="header">
-            <h1 style="color: grey; text-align: center; direction: rtl;">کارت تبریکت آماده شد.</h1>
             <p style="color: grey; text-align: center; direction: rtl;">{{ pageTopMessage }}</p>
         </header>
 
