@@ -66,7 +66,7 @@
     	<header id="header" class="alt" style="padding-top: 0px !important;">
     		<span class="logo" style="float:left; width: 40% !important; margin: 0 auto; margin-top: 20px !important; margin-bottom: 30px;padding: 0px; "><img src="images/app/samsung.png"></span>
     		<span class="logo" style="float:right; width: 31% !important; margin: 0 auto; margin-top: 20px !important; margin-bottom: 30px;padding: 0px;"><img src="images/app/Samsung_Galaxy.png"></span>
-    		<span class="logo" style="width: 70% !important; margin: 0 auto; margin-bottom: 30px;"><img src="images/app/happy-new-year copy.png" alt="" /></span>
+    		<span class="logo" style="width: 70% !important; margin: 0 auto; margin-bottom: 30px;"><img src="images/app/happy-new-year.png" alt="" /></span>
         <span class="logo" style="width: 100% !important; margin: 0 auto; margin-bottom: 30px;"><img style="max-width: 100% !important; width: 100%;" src="images/app/notif.png" alt="" /></span>
     		<h2 style="color: #5f5f5f;">عیدی سامسونگ موبایل به شما </h2>
     		<p style="color: #5f5f5f;direction: rtl;">کارت تبریک های سال نو و کارت تبریک ویژه با تصویر خودتون! <br />
@@ -160,35 +160,6 @@
           </p>
         </div>
     	</section>
-
-
-    	<!-- Footer -->
-    	<!-- <footer id="footer" style="color: #5F5F5F !important;">
-    		<section>
-          <div class="w3-black w3-padding">
-            <p style="color: #c3bdbd;text-align: right; direction: rtl;">آیا منتظر عضو جدید خانواده Galaxy هستید؟</p>
-            <ul class="actions">
-              <li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
-              <li><a style="color: white; background: #0949a0;" target="_blank" href="http://samsung.com/iran" class="button">از همه زودتر خبردار شوید</a></li>
-            </ul>
-          </div>
-    		</section>
-    		<section>
-          <div style="width: 30%; margin-left: auto;">
-            <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 100%; cursor: pointer;" src="/images/app/svg-gb-instagram.svg">
-          </div>
-    		</section>
-
-        <p style="text-align: right; direction: rtl !important;" class="copyright">
-          <a href="http://samsung.com/iran/info/privacy/">حریم شخصی کاربران</a>
-          <br>
-          <a href="http://samsung.com/iran/info/legal/">ملاحظات قانونی</a>
-          <br>
-          © 1995-2017 سامسونگ. کلیه حقوق محفوظ است.
-        </p>
-
-    	</footer> -->
-
     </div>
 
     <footer id="footer" style="color: #5F5F5F !important;margin:0px; padding:0px;">

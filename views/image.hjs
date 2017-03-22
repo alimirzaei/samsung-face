@@ -29,30 +29,13 @@
     <!-- End Google Analytics -->
 
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
-    <link rel="stylesheet" href="/stylesheets/image.css">
-    <link rel="stylesheet" href="/stylesheets/preloader.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
 
     <!-- 3rd party libraries -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 </head>
-<!-- Preloader -->
-<script type="text/javascript">
-    //<![CDATA[
-    $(window).on('load', function() { // makes sure the whole site is loaded
-        $('#status').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        $('body').delay(350).css({
-            'overflow': 'visible'
-        });
-    })
-    //]]>
-</script>
 
 <body>
-    <!-- Preloader -->
-    <div style="display:none;" id="preloader">
-        <div id="status">&nbsp;</div>
-    </div>
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -70,7 +53,6 @@
 
                 <div class="w3-center">
                   <span style=""><img onclick="window.location.href='http://www.samsung96.com'"  style="cursor: pointer; width: 30%;" src="/images/app/{{retry}}"></span>
-                  <!-- <button class="w3-round w3-hover w3-hover-khaki" onclick="window.location.href='http://www.samsung96.com'" type="button" name="button">{{ retry }}</button> -->
                 </div>
                 <br>
                 <img id="image" style="width: 100%;" src="{{ imageUrl }}">
@@ -85,37 +67,6 @@
 
             </section>
         </div>
-
-        <!-- Footer -->
-      	<!-- <footer id="footer" style="color: #5F5F5F !important;">
-      		<section>
-      			<h2 style="text-align: right; direction: rtl;color: #5F5F5F !important;">در ارتباط باش</h2>
-      			<p style="text-align: right; direction: rtl;">
-      				روزها شلوغ تر از همیشه هستن، اما ارتباط ها هم بیشتر از همیشه هستن. در ارتباط بودن با کسانی که دوستشون دارین کیفیت روزها رو بهتر و بهتر می کنه. سامسونگ موبایل در تلاش است که هر روز ارتباط خوب رو به شما هدیه بده.
-      			</p>
-            <div class="w3-black w3-padding">
-              <p style="color: #c3bdbd;text-align: right; direction: rtl;">آیا منتظر عضو جدید خانواده Galaxy هستید؟</p>
-              <ul class="actions">
-                <li><div id="14898488376952887"><script type="text/JavaScript" src="https://www.aparat.com/embed/7dutZ?data[rnddiv]=14898488376952887&data[responsive]=yes"></script></div></li>
-                <li><a style="color: white; background: #0949a0;" href="http://samsung.com/iran" class="button">از همه زودتر خبردار شوید</a></li>
-              </ul>
-            </div>
-      		</section>
-      		<section>
-            <p class="w3-large" style="text-align: right; direction: rtl; color: #363636;">کانال رسمی ما را دنبال کنید</p>
-            <div  style="width: 30%; margin-left: auto;">
-              <img onclick="window.location.href='https://www.instagram.com/samsungmobileir/'" style="width: 60%; cursor: pointer;" src="/images/app/svg-gb-instagram.svg">
-            </div>
-      		</section>
-          <p style="text-align: right; direction: rtl !important;" class="copyright">
-            <a href="http://samsung.com/iran/info/privacy/">حریم شخصی کاربران</a>
-            <br>
-            <a href="http://samsung.com/iran/info/legal/">ملاحظات قانونی</a>
-            <br>
-            © 1995-2017 سامسونگ. کلیه حقوق محفوظ است.
-          </p>
-      	</footer> -->
-
     </div>
     <footer id="footer" style="color: #5F5F5F !important;margin:0px; padding:0px;">
         <section>
@@ -140,7 +91,6 @@
             <br>
             © 1995-2017 سامسونگ. کلیه حقوق محفوظ است.
         </p>
-
     </footer>
 
     <script type="text/javascript">
@@ -168,7 +118,6 @@
             link.download = "download." + fileType;
             link.click();
             link.remove();
-            // window.location.href = "http://144.76.97.166:3000" + view.$image.attr("src");
         }
     </script>
 </body>
