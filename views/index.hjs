@@ -29,7 +29,7 @@
 
     <title>سال 1396 مبارک | سامسونگ موبایل ایران</title>
 
-    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="/stylesheets/index.css">
     <link rel="stylesheet" href="/stylesheets/preloader.css">
 
@@ -53,7 +53,7 @@
 
     <body>
     <!-- Preloader -->
-    <div id="preloader">
+    <div style="display: none;" id="preloader">
         <div id="status">&nbsp;</div>
     </div>
 
@@ -249,6 +249,8 @@
                 }
                 img.style.width = width + 'px';
                 img.style.height = height + 'px';
+                img.width = width;
+                img.height = height;
                 EXIF.getData(img, function() {
                   var ctx = canvas.getContext("2d");
                   canvas.width = img.width;
@@ -289,8 +291,13 @@
                           break;
                       case 6:
                           // horizontal flip + 90 rotate right
-                          ctx.rotate(0.5 * Math.PI);
-                          ctx.translate(width, -height);
+			  ctx.rotate(0.5 * Math.PI);
+                          ctx.translate(0, -height);
+                          break;
+                      case 7:
+   	   	          // horizontal flip + 90 rotate right
+ 	                  ctx.rotate(0.5 * Math.PI);
+                          ctx.translate(canvas.width, -canvas.height);
                           ctx.scale(-1, 1);
                           break;
                       case 8:
@@ -316,6 +323,7 @@
                       $('body').delay(350).css({
                           'overflow': 'hidden'
                       });
+                      $('#preloader').css("display", "block");
                       $('#preloader').delay(350).fadeIn('slow');
                       $('#status').fadeIn();
                   }, "image/jpeg");

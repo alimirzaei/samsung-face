@@ -8,8 +8,7 @@ var upload = multer({ dest: './public/images/uploads',
                           return cb(new Error('Only image files are allowed!') ,false);
                         }
                         cb(null, true);
-                      },
-                      limits: { fileSize: 1 * 1000 * 1000 }
+                      } 
                     });
 
 var RateLimit = require('ratelimit.js').RateLimit;

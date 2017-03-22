@@ -50,7 +50,7 @@
 
 <body>
     <!-- Preloader -->
-    <div id="preloader">
+    <div style="display:none;" id="preloader">
         <div id="status">&nbsp;</div>
     </div>
 

@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
            req.connection.socket.remoteAddress;
   var agent = useragent.parse(req.headers['user-agent']);
   var query = connection.query('INSERT INTO request_info SET ?', {ip: ip, user_agent: agent}, function (error, results, fields) {
-    if (error) throw error;
+    // if (error) throw error;
     // connection.end();
   });
 

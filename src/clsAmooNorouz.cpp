@@ -203,7 +203,7 @@ bool clsAmooNorouz::stuConfig::loadFromFile(std::__cxx11::string _fileName)
         fs["samsungLogoPosition"] >> samsungLogoPosition;
         fs["noroozLogoPosition"] >> noroozLogoPosition;
         fs["samsungLogoWidthPercent"] >> samsungLogoWidthPercent;
-        fs["noroozLogoWidthPercent"] >> samsungLogoWidthPercent;
+        fs["noroozLogoWidthPercent"] >> noroozLogoWidthPercent;
 
         fs.release();
         return true;

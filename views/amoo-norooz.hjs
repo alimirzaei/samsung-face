@@ -24,8 +24,8 @@
     <style media="screen">
         @font-face {
             font-family: 'SamsungOneArabic';
-            src: url(../fonts/SamsungOneArabic-400.eot);
-            src: url(../fonts/SamsungOneArabic-400.eot?#iefix) format("embedded-opentype"), url(../fonts/SamsungOneArabic-400.woff2) format("woff2"), url(../fonts/SamsungOneArabic-400.woff) format("woff"), url(../fonts/SamsungOneArabic-400.ttf) format("truetype");
+            src: url(/fonts/SamsungOneArabic-400.eot);
+            src: url(/fonts/SamsungOneArabic-400.eot?#iefix) format("embedded-opentype"), url(/fonts/SamsungOneArabic-400.woff2) format("woff2"), url(/fonts/SamsungOneArabic-400.woff) format("woff"), url(/fonts/SamsungOneArabic-400.ttf) format("truetype");
             font-weight: normal;
             font-style: normal;
         }
