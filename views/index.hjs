@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="description" content="عیدی نوروز 1396 سامسونگ موبایل به ایرانیان.می تونید اینجا کارت پستال های ویژه ی عید نوروز بسازید و با ارسال تصویر،  خودتون رو شبیه عمو نوروز کنید و با ارسال کارت پستال های ویژه ی نوروز سال 1396 کسانی رو که دوست دارید رو خوشحال کنید">
+    <meta name="keywords" content="عیدی سامسونگ موبایل, عیدی سامسونگ موبایل ایران, عمو نوروز سامسونگ, عمو نوروز 96 سام, عمو نوروز شو, عیدی عمو نوروز سامسونگ, سامسونگ موبایل نوروز 96, نوروز 96 سامسونگ گلکسی">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:site_name" content="Samsung96.com" />
     <meta property="og:title" content="سال ۱۳۹۶ مبارک!" />
@@ -291,12 +293,12 @@
                           break;
                       case 6:
                           // horizontal flip + 90 rotate right
-			  ctx.rotate(0.5 * Math.PI);
+			                    ctx.rotate(0.5 * Math.PI);
                           ctx.translate(0, -height);
                           break;
                       case 7:
-   	   	          // horizontal flip + 90 rotate right
- 	                  ctx.rotate(0.5 * Math.PI);
+   	   	                  // horizontal flip + 90 rotate right
+ 	                        ctx.rotate(0.5 * Math.PI);
                           ctx.translate(canvas.width, -canvas.height);
                           ctx.scale(-1, 1);
                           break;
